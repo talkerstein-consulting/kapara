@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+/* Brand tokens sourced from the live kapara.ca:
+   - Headings: Inria Serif   - Body: IBM Plex Sans
+   - Accent (sage green) #60745B, dark #363636, body text #4D4D4D,
+     cream #E3DCC9, warm off-white surfaces. */
+@theme {
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Inria Serif', Georgia, 'Times New Roman', serif;
+  --color-brand-cream: #F6F3EC;
+  --color-brand-espresso: #363636;
+  --color-brand-gold: #60745B;
+  --color-brand-gold-light: #E7ECE1;
+  --color-brand-olive: #60745B;
+  --color-brand-terracotta: #A66C54;
+}
+
+html, body {
+  font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  background-color: #F6F3EC;
+  color: #363636;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Kapara Bakery & Cafe",
+  "description": "Premium dining and ordering portal for Kapara Bistro & Grill, featuring flame-grilled kebabs, legendary crispy chicken schnitzels, fresh starters, loaded fries, and Mediterranean catering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
