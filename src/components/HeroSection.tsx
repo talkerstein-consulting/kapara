@@ -10,6 +10,7 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const marqueeTrackRef = useRef<HTMLDivElement>(null);
 
   // Attempt autoplay. If a browser blocks autoplay (e.g. low-power mode), the
   // video still renders its first frame/poster as the background — we only fall
@@ -25,19 +26,34 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
     }
   }, []);
 
+  // The marquee runs as a plain CSS animation (see `.marquee-track` below) so
+  // it keeps scrolling smoothly with no dependency on JS frame callbacks.
+  // On hover we slow it down — rather than swapping `animation-duration`
+  // (which makes the browser re-derive the current frame from elapsed-time /
+  // new-duration and snap to a different position, the "glitch"), we use the
+  // Web Animations API's `playbackRate`, which changes speed continuously
+  // from the animation's current position with no jump.
+  const setMarqueeSpeed = (rate: number) => {
+    const track = marqueeTrackRef.current;
+    if (!track) return;
+    for (const anim of track.getAnimations()) {
+      anim.playbackRate = rate;
+    }
+  };
+
   const brandTags = [
-    { name: 'FLAME-GRILLED KEBABS', style: { fontFamily: "'Inria Serif', serif", fontWeight: 700, letterSpacing: '0.04em', fontSize: '16px', textTransform: 'uppercase' as const } },
-    { name: 'CRISPY SCHNITZELS', style: { fontFamily: 'sans-serif', fontWeight: 600, letterSpacing: '0.08em', fontSize: '13px', textTransform: 'uppercase' as const } },
-    { name: 'KAPARA LOADED FRIES', style: { fontFamily: "'Inria Serif', serif", fontWeight: 700, letterSpacing: '0.04em', fontSize: '16px', textTransform: 'uppercase' as const } },
-    { name: 'HUMMUS & FALAFEL BOWLS', style: { fontFamily: 'monospace', fontWeight: 500, letterSpacing: '0.1em', fontSize: '13px', textTransform: 'uppercase' as const } },
-    { name: 'STEAK & PARGIOT SKEWERS', style: { fontFamily: "'Inria Serif', serif", fontWeight: 700, letterSpacing: '0.04em', fontSize: '16px', textTransform: 'uppercase' as const } },
-    { name: 'CHEF-MADE SAUCES', style: { fontFamily: 'sans-serif', fontWeight: 600, letterSpacing: '0.08em', fontSize: '13px', textTransform: 'uppercase' as const } },
-    { name: 'COR KOSHER CERTIFIED MEAT', style: { fontFamily: 'monospace', fontWeight: 500, letterSpacing: '0.1em', fontSize: '13px', textTransform: 'uppercase' as const } },
+    'FLAME-GRILLED KEBABS',
+    'CRISPY SCHNITZELS',
+    'KAPARA LOADED FRIES',
+    'HUMMUS & FALAFEL BOWLS',
+    'STEAK & PARGIOT SKEWERS',
+    'CHEF-MADE SAUCES',
+    'COR KOSHER CERTIFIED MEAT',
   ];
 
   return (
     <section id="hero-section" className="relative w-full">
-      {/* Scoped style for infinite marquee */}
+      {/* Scoped style for the infinite marquee and the hero's Ken Burns fallback image */}
       <style>{`
         @keyframes marquee {
           0% {
@@ -62,9 +78,6 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
           display: flex;
           width: max-content;
           animation: marquee 22s linear infinite;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
         }
         .ken-burns-fallback {
           animation: kenburns 36s ease-in-out infinite;
@@ -117,14 +130,14 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
         <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/50 to-black/25 z-1" />
 
         {/* Content Overlay */}
-        <div id="hero-content" className="relative z-10 flex flex-col items-start justify-center h-full p-8 md:p-12">
+        <div id="hero-content" className="relative z-10 flex flex-col items-center justify-center text-center h-full p-8 md:p-12">
           {/* Top/Middle Block: Typography & Button */}
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-center">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-white/15 text-white border border-white/25 mb-4 font-sans tracking-wide uppercase backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-white text-brand-espresso border border-white/40 mb-4 font-sans tracking-wide uppercase shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5 text-brand-gold animate-pulse" />
               <span>Welcome to Kapara</span>
@@ -135,7 +148,7 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-white text-5xl md:text-7xl font-serif font-bold leading-none max-w-2xl mb-6 tracking-tight drop-shadow-lg"
+              className="text-white text-5xl md:text-7xl font-serif font-bold leading-none max-w-2xl mx-auto mb-6 tracking-tight drop-shadow-lg"
               style={{ letterSpacing: '-0.02em' }}
             >
               Toronto's Best
@@ -148,7 +161,7 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-white/90 text-base md:text-lg max-w-md mb-8 leading-relaxed font-sans drop-shadow"
+              className="text-white/90 text-base md:text-lg max-w-md mx-auto mb-8 leading-relaxed font-sans drop-shadow"
             >
               A Taste of Israel, Right Here in Toronto. Come for the food, stay for the vibe.
             </motion.p>
@@ -159,42 +172,55 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="inline-flex items-center gap-2 border-2 border-white text-white text-sm md:text-base font-bold uppercase tracking-wider px-8 py-3.5 rounded-full hover:bg-white hover:text-brand-espresso transition-all duration-200 cursor-pointer active:scale-98 group"
+              className="inline-flex items-center gap-2 border-2 border-white text-white text-sm md:text-base font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg hover:bg-white hover:text-brand-espresso transition-all duration-200 cursor-pointer active:scale-98 group"
             >
               View Full Menu
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </motion.button>
           </div>
+        </div>
+      </div>
 
-          {/* Bottom Block: Brand Marquee */}
-          <div id="hero-brand-marquee" className="absolute bottom-8 left-8 md:left-12 w-full max-w-md overflow-hidden select-none">
-            <div className="text-brand-gold text-xs font-semibold tracking-widest uppercase mb-3 font-sans drop-shadow">
-              Flame-Grilled Fresh Daily on Open Fire
-            </div>
-            <div className="relative w-full overflow-hidden mask-gradient-x">
-              <div className="marquee-track">
-                {/* First list of brand tags */}
-                {brandTags.map((tag, idx) => (
-                  <span
-                    key={`tag-1-${idx}`}
-                    className="mx-7 shrink-0 text-white/70 hover:text-white transition-colors duration-200 cursor-default whitespace-nowrap"
-                    style={tag.style}
-                  >
-                    {tag.name}
-                  </span>
-                ))}
-                {/* Duplicated list of brand tags for looping */}
-                {brandTags.map((tag, idx) => (
-                  <span
-                    key={`tag-2-${idx}`}
-                    className="mx-7 shrink-0 text-white/70 hover:text-white transition-colors duration-200 cursor-default whitespace-nowrap"
-                    style={tag.style}
-                  >
-                    {tag.name}
-                  </span>
-                ))}
-              </div>
-            </div>
+      {/* Green banner strip separating the hero from the next section,
+          carrying the scrolling brand-tags marquee — styled after the
+          Eli's Barbershop marquee: hairline borders framing the strip,
+          a bright accent separator glyph between items, and a real
+          edge fade (matching the strip's own background color) instead
+          of the previous no-op mask utility. */}
+      <div
+        id="hero-brand-marquee"
+        className="relative w-full bg-[#60745B] border-y border-white/15 py-4 overflow-hidden select-none"
+      >
+        <div
+          className="relative w-full overflow-hidden"
+          onMouseEnter={() => setMarqueeSpeed(0.15)}
+          onMouseLeave={() => setMarqueeSpeed(1)}
+        >
+          {/* Edge fade overlays */}
+          <div className="absolute inset-y-0 left-0 w-16 md:w-28 bg-linear-to-r from-[#60745B] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-16 md:w-28 bg-linear-to-l from-[#60745B] to-transparent z-10 pointer-events-none" />
+
+          <div ref={marqueeTrackRef} className="marquee-track">
+            {/* First list of brand tags */}
+            {brandTags.map((tag, idx) => (
+              <span
+                key={`tag-1-${idx}`}
+                className="shrink-0 inline-flex items-center text-white/75 hover:text-white transition-colors duration-200 cursor-default whitespace-nowrap font-sans font-bold text-sm tracking-widest uppercase"
+              >
+                {tag}
+                <span className="mx-8 text-brand-cream text-xs" aria-hidden="true">✦</span>
+              </span>
+            ))}
+            {/* Duplicated list of brand tags for looping */}
+            {brandTags.map((tag, idx) => (
+              <span
+                key={`tag-2-${idx}`}
+                className="shrink-0 inline-flex items-center text-white/75 hover:text-white transition-colors duration-200 cursor-default whitespace-nowrap font-sans font-bold text-sm tracking-widest uppercase"
+              >
+                {tag}
+                <span className="mx-8 text-brand-cream text-xs" aria-hidden="true">✦</span>
+              </span>
+            ))}
           </div>
         </div>
       </div>

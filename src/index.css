@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 @import "tailwindcss";
+@import "./styles/global.css";
 
 /* Brand tokens sourced from the live kapara.ca:
    - Headings: Inria Serif   - Body: IBM Plex Sans
@@ -10,6 +11,7 @@
   --font-serif: 'Inria Serif', Georgia, 'Times New Roman', serif;
   --color-brand-cream: #F6F3EC;
   --color-brand-espresso: #363636;
+  --color-brand-forest: #5F7058;
   --color-brand-gold: #60745B;
   --color-brand-gold-light: #E7ECE1;
   --color-brand-olive: #60745B;

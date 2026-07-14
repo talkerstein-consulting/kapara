@@ -23,18 +23,18 @@ export function About() {
   ];
 
   return (
-    <div id="about-page-root" className="min-h-screen bg-brand-cream/30 pt-28 pb-20 px-4 md:px-8">
+    <div id="about-page-root" className="kp-page bg-brand-cream/30">
       <div className="max-w-5xl mx-auto">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-brand-gold text-xs font-bold tracking-widest uppercase mb-2 block font-sans">
+        <div className="kp-section-header">
+          <span className="kp-eyebrow">
             Welcome to Kapara
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-espresso mb-4 tracking-tight">
+          <h2 className="kp-heading">
             More Than a Restaurant
           </h2>
-          <p className="text-brand-espresso/80 text-sm md:text-base font-sans">
+          <p className="kp-subtext">
             Toronto's best casual kosher spot — a taste of Israel, right here in Thornhill. Come for the food, stay for the vibe.
           </p>
         </div>
@@ -42,7 +42,7 @@ export function About() {
         {/* Feature image + Story (two columns) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-14">
           {/* Feature image */}
-          <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-md">
+          <div className="rounded-lg overflow-hidden border border-gray-100 shadow-md">
             <img
               src="/home/kapara-food-celebration.webp"
               alt="A celebratory feast at Kapara — flame-grilled meats, loaded fries, and fresh mezze"
@@ -51,7 +51,7 @@ export function About() {
           </div>
 
           {/* Story */}
-          <div className="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm relative overflow-hidden flex flex-col justify-center">
+          <div className="bg-white rounded-lg p-8 md:p-10 border border-gray-100 shadow-sm relative overflow-hidden flex flex-col justify-center">
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-brand-gold" />
             <h3 className="font-serif font-bold text-2xl md:text-3xl text-brand-espresso mb-5">
               The Kapara Story
@@ -79,7 +79,7 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white rounded-3xl p-7 border border-gray-100 shadow-3xs flex flex-col items-start"
+                className="bg-white rounded-lg p-7 border border-gray-100 shadow-3xs flex flex-col items-start"
               >
                 <div className="w-12 h-12 rounded-2xl bg-brand-gold/15 text-brand-gold flex items-center justify-center mb-5">
                   <Icon className="w-6 h-6" />
@@ -96,7 +96,7 @@ export function About() {
         </div>
 
         {/* CTA */}
-        <div className="bg-brand-espresso text-brand-cream rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+        <div className="bg-brand-forest text-brand-cream rounded-lg p-8 md:p-12 text-center relative overflow-hidden">
           <div className="absolute right-6 bottom-2 text-white/5 pointer-events-none font-serif text-9xl select-none font-bold">
             Kapara
           </div>
@@ -111,14 +111,14 @@ export function About() {
               href={ORDER_ONLINE_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-brand-gold text-white hover:bg-white hover:text-brand-espresso font-sans font-bold text-sm px-7 py-3.5 rounded-full transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 bg-white text-brand-espresso hover:bg-brand-gold hover:text-white font-sans font-bold text-sm px-7 py-3.5 rounded-lg transition-all cursor-pointer"
             >
               Order Online
               <ArrowRight className="w-4 h-4" />
             </a>
             <button
               onClick={() => { window.location.href = '/reservations'; }}
-              className="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-brand-cream hover:bg-white/20 font-sans font-bold text-sm px-7 py-3.5 rounded-full transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 bg-white text-brand-espresso border border-white hover:bg-brand-gold hover:text-white font-sans font-bold text-sm px-7 py-3.5 rounded-lg transition-all cursor-pointer"
             >
               Book a Table
             </button>

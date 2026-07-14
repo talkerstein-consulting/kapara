@@ -16,7 +16,7 @@ export function UseCasesSection({ onLearnMore }: UseCasesSectionProps) {
       icon: Flame,
       title: 'Sizzling Charcoal Skewers',
       description: 'Premium beef kebabs, tender pargiot (chicken thigh), and ribeye skewers seasoned with proprietary house spice blends and grilled to smoky perfection on our open fire grill.',
-      imageUrl: '/home/kapara-on-thegrill.webp',
+      imageUrl: '/home/kapara-food.webp',
     },
     {
       id: 'schnitzels',
@@ -74,15 +74,15 @@ export function UseCasesSection({ onLearnMore }: UseCasesSectionProps) {
                 <button
                   key={mode.id}
                   onClick={() => setActiveModeId(mode.id)}
-                  className={`flex items-center gap-4 p-4 rounded-xl text-left transition-all duration-200 cursor-pointer w-full max-w-md ${
+                  className={`flex items-center gap-4 p-4 rounded-lg text-left transition-all duration-200 cursor-pointer w-full max-w-md ${
                     isActive
-                      ? 'bg-brand-espresso text-brand-cream shadow-md translate-x-2'
+                      ? 'bg-brand-forest text-brand-cream shadow-md translate-x-2'
                       : 'bg-white hover:bg-gray-50 text-brand-espresso border border-gray-200/50'
                   }`}
                 >
                   <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                      isActive ? 'bg-brand-gold text-brand-espresso' : 'bg-gray-100 text-gray-700'
+                      isActive ? 'bg-white/15 text-white' : 'bg-gray-100 text-gray-700'
                     }`}
                   >
                     <IconComp className="w-5 h-5" />
@@ -92,7 +92,7 @@ export function UseCasesSection({ onLearnMore }: UseCasesSectionProps) {
                   </div>
                   <ArrowRight
                     className={`w-4 h-4 transition-transform duration-300 ${
-                      isActive ? 'translate-x-0 opacity-100 text-brand-gold' : 'translate-x-[-4px] opacity-0 text-gray-400'
+                      isActive ? 'translate-x-0 opacity-100 text-white' : 'translate-x-[-4px] opacity-0 text-gray-400'
                     }`}
                   />
                 </button>
@@ -102,7 +102,7 @@ export function UseCasesSection({ onLearnMore }: UseCasesSectionProps) {
         </div>
 
         {/* Right Column (Image Card Overlay) */}
-        <div id="use-cases-right" className="relative rounded-3xl overflow-hidden min-h-[500px] md:min-h-[600px] shadow-xl border border-gray-200/40">
+        <div id="use-cases-right" className="relative rounded-lg overflow-hidden min-h-[500px] md:min-h-[600px] shadow-xl border border-gray-200/40">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeMode.id}

@@ -77,18 +77,18 @@ export function Reservations() {
   const selectedEventLabel = eventOptions.find((o) => o.value === eventType)?.label || 'Casual Dining';
 
   return (
-    <div id="reservations-page" className="min-h-screen bg-brand-cream/30 pt-28 pb-20 px-4 md:px-8">
+    <div id="reservations-page" className="kp-page bg-brand-cream/30">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-brand-gold text-xs font-bold tracking-widest uppercase mb-2 block font-sans">
+        <div className="kp-section-header">
+          <span className="kp-eyebrow">
             Dine With Us in Thornhill
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-espresso mb-4 tracking-tight">
+          <h2 className="kp-heading">
             Book a Reservation at Kapara
           </h2>
-          <p className="text-brand-espresso/80 text-sm md:text-base font-sans">
+          <p className="kp-subtext">
             A taste of Israel, right here in Toronto. Reserve your table and come hungry — casual vibes, serious eats, and a room made for gathering.
           </p>
         </div>
@@ -97,7 +97,7 @@ export function Reservations() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
 
           {/* Left Column: Form Card */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-8 border border-gray-100 shadow-md">
+          <div className="lg:col-span-7 bg-white rounded-lg p-8 border border-gray-100 shadow-md">
             {!submitted ? (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div className="flex gap-3 items-center pb-4 border-b border-gray-100">
@@ -116,23 +116,23 @@ export function Reservations() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1">
-                    <label className="text-xs font-bold text-brand-espresso/70 uppercase px-2 font-sans">
+                    <label className="kp-form-label">
                       Date
                     </label>
                     <div className="relative">
-                      <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                      <Calendar className="kp-input-icon" />
                       <input
                         type="date"
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
                         required
-                        className="w-full bg-brand-cream/10 border border-gray-200 rounded-full pl-10 pr-4 py-3 text-sm focus:outline-hidden focus:border-brand-gold font-sans text-brand-espresso shadow-2xs"
+                        className="kp-input-pill"
                       />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="text-xs font-bold text-brand-espresso/70 uppercase px-2 font-sans">
+                    <label className="kp-form-label">
                       Number of Guests
                     </label>
                     <div className="relative">
@@ -154,7 +154,7 @@ export function Reservations() {
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-brand-espresso/70 uppercase px-2 font-sans">
+                  <label className="kp-form-label">
                     Type of Event
                   </label>
                   <select
@@ -171,60 +171,60 @@ export function Reservations() {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs font-bold text-brand-espresso/70 uppercase px-2 font-sans">
+                  <label className="kp-form-label">
                     Full Name
                   </label>
                   <div className="relative">
-                    <User className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                    <User className="kp-input-icon" />
                     <input
                       type="text"
                       placeholder="e.g. Sarah Cohen"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
-                      className="w-full bg-brand-cream/10 border border-gray-200 rounded-full pl-10 pr-4 py-3 text-sm focus:outline-hidden focus:border-brand-gold font-sans text-brand-espresso shadow-2xs"
+                      className="kp-input-pill"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1">
-                    <label className="text-xs font-bold text-brand-espresso/70 uppercase px-2 font-sans">
+                    <label className="kp-form-label">
                       Phone
                     </label>
                     <div className="relative">
-                      <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                      <Phone className="kp-input-icon" />
                       <input
                         type="tel"
                         placeholder="(905) 886-7444"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         required
-                        className="w-full bg-brand-cream/10 border border-gray-200 rounded-full pl-10 pr-4 py-3 text-sm focus:outline-hidden focus:border-brand-gold font-sans text-brand-espresso shadow-2xs"
+                        className="kp-input-pill"
                       />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="text-xs font-bold text-brand-espresso/70 uppercase px-2 font-sans">
+                    <label className="kp-form-label">
                       Email
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                      <Mail className="kp-input-icon" />
                       <input
                         type="email"
                         placeholder="sarah@domain.ca"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="w-full bg-brand-cream/10 border border-gray-200 rounded-full pl-10 pr-4 py-3 text-sm focus:outline-hidden focus:border-brand-gold font-sans text-brand-espresso shadow-2xs"
+                        className="kp-input-pill"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs font-bold text-brand-espresso/70 uppercase px-2 font-sans">
+                  <label className="kp-form-label">
                     Additional Comments
                   </label>
                   <textarea
@@ -238,7 +238,7 @@ export function Reservations() {
 
                 <button
                   type="submit"
-                  className="w-full bg-brand-espresso text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-semibold py-4 rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
+                  className="w-full bg-brand-forest text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-semibold py-4 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
                 >
                   Reserve a Spot
                   <ArrowRight className="w-4 h-4" />
@@ -246,7 +246,7 @@ export function Reservations() {
               </form>
             ) : (
               <div className="text-center py-10">
-                <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="kp-success-icon">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-3xl font-serif font-bold text-brand-espresso mb-3 tracking-tight">
@@ -256,7 +256,7 @@ export function Reservations() {
                   Thank you, <span className="font-semibold text-brand-espresso">{name}</span>! We have received your reservation request and our team will confirm shortly by phone or email.
                 </p>
 
-                <div className="bg-brand-cream/40 p-6 rounded-3xl border border-gray-200 max-w-sm mx-auto mb-8 shadow-2xs text-left font-sans">
+                <div className="bg-brand-cream/40 p-6 rounded-lg border border-gray-200 max-w-sm mx-auto mb-8 shadow-2xs text-left font-sans">
                   <span className="text-xs text-brand-gold block font-semibold uppercase tracking-wider mb-3">
                     Reservation Summary
                   </span>
@@ -290,13 +290,13 @@ export function Reservations() {
                       setDate('');
                       setComments('');
                     }}
-                    className="bg-white border border-gray-200 hover:bg-gray-50 text-brand-espresso font-sans font-bold text-xs px-6 py-3 rounded-full transition-colors cursor-pointer"
+                    className="bg-white border border-gray-200 hover:bg-gray-50 text-brand-espresso font-sans font-bold text-xs px-6 py-3 rounded-lg transition-colors cursor-pointer"
                   >
                     Make Another Reservation
                   </button>
                   <button
                     onClick={() => { window.location.href = '/menu'; }}
-                    className="bg-brand-espresso text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-bold text-xs px-6 py-3 rounded-full transition-all cursor-pointer"
+                    className="bg-brand-forest text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-bold text-xs px-6 py-3 rounded-lg transition-all cursor-pointer"
                   >
                     Browse the Menu
                   </button>
@@ -318,7 +318,7 @@ export function Reservations() {
               {highlights.map((item, idx) => {
                 const IconComponent = item.icon;
                 return (
-                  <div key={idx} className="flex gap-4 items-start p-5 bg-white rounded-2xl border border-gray-50 shadow-3xs">
+                  <div key={idx} className="flex gap-4 items-start p-5 bg-white rounded-lg border border-gray-50 shadow-3xs">
                     <div className="bg-brand-gold/15 text-brand-gold p-3 rounded-xl shrink-0">
                       <IconComponent className="w-5 h-5" />
                     </div>
@@ -335,7 +335,7 @@ export function Reservations() {
               })}
             </div>
 
-            <div className="bg-brand-espresso text-brand-cream rounded-2xl p-5 flex gap-3.5 items-start">
+            <div className="bg-brand-forest text-brand-cream rounded-2xl p-5 flex gap-3.5 items-start">
               <Utensils className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-wider mb-1 font-sans text-brand-gold">
@@ -371,7 +371,7 @@ export function Reservations() {
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-3xs"
+                  className="bg-white rounded-lg border border-gray-100 overflow-hidden shadow-3xs"
                 >
                   <button
                     onClick={() => toggleFaq(idx)}

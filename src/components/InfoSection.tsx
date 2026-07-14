@@ -26,11 +26,11 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
             <button
               id="btn-discover"
               onClick={onDiscover}
-              className="inline-flex items-center gap-3 bg-brand-espresso text-brand-cream text-base font-semibold pl-6 pr-2 py-2 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg group"
+              className="inline-flex items-center gap-3 bg-brand-forest text-brand-cream text-base font-semibold pl-6 pr-2 py-2 rounded-lg hover:bg-white hover:text-brand-forest transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg group"
             >
               Estimate Event Catering
-              <span className="bg-brand-cream rounded-full p-1.5 transition-transform duration-300 group-hover:translate-x-1">
-                <ArrowRight className="w-4 h-4 text-brand-espresso" />
+              <span className="bg-brand-cream rounded-full p-1.5 transition-all duration-300 group-hover:translate-x-1 group-hover:bg-brand-forest">
+                <ArrowRight className="w-4 h-4 text-brand-espresso transition-colors duration-300 group-hover:text-white" />
               </span>
             </button>
           </div>
@@ -50,7 +50,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
           {/* Card 1 (spans 2 cols on lg) */}
           <div
             id="info-card-bloom"
-            className="rounded-2xl lg:col-span-2 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between p-7 min-h-80 relative group"
+            className="rounded-lg lg:col-span-2 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between p-7 min-h-80 relative group"
             style={{
               backgroundImage: 'url("/home/kapara-food-celebration.webp")',
               backgroundSize: 'cover',
@@ -65,7 +65,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
                 <Sparkles className="w-3.5 h-3.5 text-brand-gold" /> Community
               </span>
               <h3
-                className="text-brand-cream text-2xl md:text-3xl font-serif font-bold leading-snug"
+                className="kp-card-title text-2xl"
                 style={{ letterSpacing: '-0.01em' }}
               >
                 A Gathering Place
@@ -82,7 +82,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
           {/* Card 2 */}
           <div
             id="info-card-fluid"
-            className="rounded-2xl p-7 min-h-80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden"
+            className="rounded-lg p-7 min-h-80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden"
             style={{
               backgroundImage: 'url("/menu/kebab.webp")',
               backgroundSize: 'cover',
@@ -93,10 +93,10 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
             <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/45 to-black/80 pointer-events-none group-hover:from-black/45 group-hover:via-black/35 transition-colors duration-300" />
 
             <div className="relative z-10">
-              <div className="text-brand-gold mb-4 transition-transform duration-500 group-hover:rotate-12 w-fit">
+              <div className="kp-icon-badge mb-4 transition-transform duration-500 group-hover:rotate-12">
                 <Flame className="w-8 h-8" />
               </div>
-              <h3 className="text-brand-cream text-2xl font-serif font-bold leading-tight">
+              <h3 className="kp-card-title text-2xl">
                 Flavor
               </h3>
             </div>
@@ -110,7 +110,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
           {/* Card 3 */}
           <div
             id="info-card-automated"
-            className="rounded-2xl p-7 min-h-80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden"
+            className="rounded-lg p-7 min-h-80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden"
             style={{
               backgroundImage: 'url("/menu/loaded-fries.webp")',
               backgroundSize: 'cover',
@@ -121,10 +121,10 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
             <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/45 to-black/80 pointer-events-none group-hover:from-black/45 group-hover:via-black/35 transition-colors duration-300" />
 
             <div className="relative z-10">
-              <div className="text-brand-gold mb-4 transition-transform duration-500 group-hover:scale-110 w-fit">
+              <div className="kp-icon-badge mb-4 transition-transform duration-500 group-hover:scale-110">
                 <PartyPopper className="w-8 h-8" />
               </div>
-              <h3 className="text-brand-cream text-2xl font-serif font-bold leading-tight">
+              <h3 className="kp-card-title text-2xl">
                 Fun
               </h3>
             </div>

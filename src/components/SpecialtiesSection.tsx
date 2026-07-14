@@ -13,7 +13,7 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
       title: 'Flame-Grilled Kebabs',
       subtitle: 'Charcoal Fire Masterpiece',
       desc: 'Our signature blend of premium seasoned ground beef and lamb, minced fresh daily with Mediterranean herbs, and grilled to absolute juicy perfection over open hardwood embers. Served in a warm, fluffy hand-braided challah, pocket pita, or as an abundant meat platter.',
-      image: '/home/kapara-on-thegrill.webp',
+      image: '/home/kapara-food.webp',
       badge: 'Bestseller',
       icon: Flame,
       color: 'border-brand-gold/20 text-brand-gold bg-brand-gold/10',
@@ -57,7 +57,7 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
-                className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row h-full group"
+                className="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row h-full group"
               >
                 {/* Image Section */}
                 <div className="md:w-1/2 h-64 md:h-auto min-h-[260px] relative overflow-hidden select-none bg-brand-cream/10">
@@ -70,7 +70,7 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
                   <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent pointer-events-none md:hidden" />
                   
                   {/* Floating Badge */}
-                  <span className="absolute top-4 left-4 inline-flex items-center gap-1 bg-brand-espresso text-brand-cream text-[10px] font-bold font-sans uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-10">
+                  <span className="absolute top-4 left-4 inline-flex items-center gap-1 bg-brand-forest text-brand-cream text-[10px] font-bold font-sans uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-10">
                     <Sparkles className="w-2.5 h-2.5 text-brand-gold" /> {item.badge}
                   </span>
                 </div>

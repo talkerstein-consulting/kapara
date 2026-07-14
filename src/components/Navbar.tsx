@@ -16,13 +16,14 @@ export function Navbar({ activePage = 'home' }: NavbarProps) {
     { id: 'about', label: 'About Us', href: '/about' },
     { id: 'location', label: 'Contact Us', href: '/location' },
     { id: 'menu', label: 'Menu', href: '/menu' },
+    { id: 'catering', label: 'Catering', href: '/catering' },
     { id: 'reservations', label: 'Reservations', href: '/reservations' },
   ];
 
   return (
     <nav id="navbar-main" className="fixed top-4 inset-x-0 z-50 px-4">
       {/* Floating pill */}
-      <div className="max-w-4xl mx-auto bg-[#60745B]/95 backdrop-blur-md rounded-full shadow-lg border border-white/10 pl-6 pr-3 py-2 flex items-center justify-between">
+      <div className="max-w-4xl mx-auto bg-[#60745B]/95 backdrop-blur-md rounded-lg shadow-lg border border-white/10 pl-6 pr-3 py-2 flex items-center justify-between">
         {/* Left: Logo */}
         <a
           id="nav-brand"
@@ -71,7 +72,7 @@ export function Navbar({ activePage = 'home' }: NavbarProps) {
             href={ORDER_ONLINE_URL}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center bg-white text-[#60745B] text-sm font-bold px-6 py-2.5 rounded-full hover:bg-brand-espresso hover:text-white transition-colors duration-200 shadow-sm cursor-pointer active:scale-98"
+            className="hidden sm:inline-flex items-center bg-white text-[#60745B] text-sm font-bold px-6 py-2.5 rounded-lg border border-transparent hover:bg-transparent hover:border-white hover:text-white transition-colors duration-200 shadow-sm cursor-pointer active:scale-98"
           >
             Order Online
           </a>
@@ -80,7 +81,7 @@ export function Navbar({ activePage = 'home' }: NavbarProps) {
           <button
             id="btn-mobile-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-white hover:bg-white/15 rounded-full transition-colors cursor-pointer"
+            className="lg:hidden p-2 text-white hover:bg-white/15 rounded-lg transition-colors cursor-pointer"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -97,7 +98,7 @@ export function Navbar({ activePage = 'home' }: NavbarProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-4 right-4 mt-2 bg-brand-cream rounded-3xl border border-black/5 shadow-lg px-6 py-6 flex flex-col gap-5 lg:hidden z-50"
+            className="absolute top-full left-4 right-4 mt-2 bg-brand-cream rounded-lg border border-black/5 shadow-lg px-6 py-6 flex flex-col gap-5 lg:hidden z-50"
           >
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => {
@@ -122,7 +123,7 @@ export function Navbar({ activePage = 'home' }: NavbarProps) {
               target="_blank"
               rel="noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center bg-brand-espresso text-white text-base font-bold py-3 rounded-full hover:bg-brand-gold transition-colors cursor-pointer"
+              className="block w-full text-center bg-brand-forest text-white text-base font-bold py-3 rounded-lg hover:bg-brand-gold transition-colors cursor-pointer"
             >
               Order Online
             </a>

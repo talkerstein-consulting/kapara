@@ -145,7 +145,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                                 <button
                                   type="button"
                                   onClick={() => updateQty(item.id, 1)}
-                                  className="w-8 h-8 rounded-full bg-brand-espresso text-white flex items-center justify-center hover:bg-brand-gold hover:text-brand-espresso transition-colors"
+                                  className="w-8 h-8 rounded-full bg-brand-forest text-white flex items-center justify-center hover:bg-brand-gold hover:text-brand-espresso transition-colors"
                                 >
                                   <Plus className="w-3.5 h-3.5" />
                                 </button>
@@ -154,7 +154,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                               <button
                                 type="button"
                                 onClick={() => updateQty(item.id, 1)}
-                                className="px-3.5 py-1.5 rounded-full border border-brand-espresso text-xs font-semibold text-brand-espresso hover:bg-brand-espresso hover:text-white transition-all cursor-pointer"
+                                className="px-3.5 py-1.5 rounded-full border border-brand-espresso text-xs font-semibold text-brand-espresso hover:bg-brand-forest hover:text-white transition-all cursor-pointer"
                               >
                                 Add
                               </button>
@@ -171,7 +171,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                       <h5 className="font-serif font-bold text-sm text-brand-espresso mb-3">Pickup & Customer Details</h5>
                       <div className="flex flex-col gap-3">
                         <div className="relative">
-                          <User className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                          <User className="kp-input-icon" />
                           <input
                             type="text"
                             placeholder="Your full name"
@@ -183,7 +183,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                         </div>
 
                         <div className="relative">
-                          <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                          <Phone className="kp-input-icon" />
                           <input
                             type="tel"
                             placeholder="Phone number"
@@ -195,7 +195,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                         </div>
 
                         <div className="relative">
-                          <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                          <Calendar className="kp-input-icon" />
                           <select
                             value={pickupDate}
                             onChange={(e) => setPickupDate(e.target.value)}
@@ -215,7 +215,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
 
                         <button
                           type="submit"
-                          className="w-full mt-3 bg-brand-espresso text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                          className="w-full mt-3 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                         >
                           Confirm & Book Pickup
                           <ArrowRight className="w-4 h-4" />
@@ -256,7 +256,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
               {step === 'dashboard' && (
                 <div className="flex flex-col gap-6">
                   {/* Premium balance widget */}
-                  <div className="bg-brand-espresso text-white rounded-3xl p-6 relative overflow-hidden shadow-md">
+                  <div className="bg-brand-forest text-white rounded-3xl p-6 relative overflow-hidden shadow-md">
                     <div className="absolute right-0 bottom-0 translate-x-4 translate-y-4 opacity-5 pointer-events-none">
                       <ChefHat className="w-48 h-48" />
                     </div>
@@ -321,7 +321,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                     </button>
                     <button
                       onClick={onClose}
-                      className="flex-1 bg-brand-espresso text-brand-cream text-xs font-semibold py-3 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors cursor-pointer text-center"
+                      className="flex-1 bg-brand-forest text-brand-cream text-xs font-semibold py-3 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors cursor-pointer text-center"
                     >
                       Close Window
                     </button>
@@ -434,7 +434,7 @@ export function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
 
                   <button
                     type="submit"
-                    className="w-full mt-2 bg-brand-espresso text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                    className="w-full mt-2 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                   >
                     Lock Weekly Loaf
                     <ArrowRight className="w-4 h-4" />
@@ -462,7 +462,7 @@ export function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
 
                 <button
                   onClick={onClose}
-                  className="bg-brand-espresso text-brand-cream text-sm font-semibold px-8 py-3 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors cursor-pointer"
+                  className="bg-brand-forest text-brand-cream text-sm font-semibold px-8 py-3 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors cursor-pointer"
                 >
                   Return to Site
                 </button>
@@ -590,7 +590,7 @@ export function RewardCalculatorModal({ isOpen, onClose }: RewardCalculatorModal
                       onClick={() => setMealType(type)}
                       className={`py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
                         mealType === type
-                          ? 'bg-brand-espresso text-brand-cream border-brand-espresso shadow-xs'
+                          ? 'bg-brand-forest text-brand-cream border-brand-espresso shadow-xs'
                           : 'bg-white text-brand-espresso/70 border-gray-200 hover:bg-gray-50'
                       }`}
                     >
@@ -644,7 +644,7 @@ export function RewardCalculatorModal({ isOpen, onClose }: RewardCalculatorModal
                   onClose();
                   alert(`Thank you! Catering inquiry generated for ${guests} guests of meal style '${activeConfig.label}'. Our Thornhill supervisor will contact you shortly to finalize flavors.`);
                 }}
-                className="w-full bg-brand-espresso text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                className="w-full bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
               >
                 Submit Catering Request
                 <ArrowRight className="w-4 h-4" />

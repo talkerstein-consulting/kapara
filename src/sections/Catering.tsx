@@ -79,18 +79,18 @@ export function Catering() {
   ];
 
   return (
-    <div id="catering-page-root" className="min-h-screen bg-brand-cream/30 pt-28 pb-20 px-4 md:px-8">
+    <div id="catering-page-root" className="kp-page bg-brand-cream/30">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-brand-gold text-xs font-bold tracking-widest uppercase mb-2 block font-sans">
+          <span className="kp-eyebrow">
             Thornhill Catering & Private Events
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-espresso mb-4 tracking-tight">
+          <h2 className="kp-heading">
             Catering & Events
           </h2>
-          <p className="text-brand-espresso/80 text-sm md:text-base font-sans">
+          <p className="kp-subtext">
             Bring the flavors of Kapara to your celebration. From casual pita bars to full private-event spreads, we cater birthdays, Bar/Bat Mitzvahs, corporate dinners, and Shabbat gatherings — all kosher.
           </p>
         </div>
@@ -100,7 +100,7 @@ export function Catering() {
           {servicePillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
-              <div key={idx} className="bg-white p-6 rounded-3xl border border-gray-100 shadow-3xs flex flex-col items-start">
+              <div key={idx} className="bg-white p-6 rounded-lg border border-gray-100 shadow-3xs flex flex-col items-start">
                 <div className="w-11 h-11 rounded-2xl bg-brand-gold/15 text-brand-gold flex items-center justify-center mb-4">
                   <Icon className="w-5 h-5" />
                 </div>
@@ -118,7 +118,7 @@ export function Catering() {
             <div className="lg:col-span-7 flex flex-col gap-6">
 
               {/* Package Selection Box */}
-              <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+              <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
                 <span className="text-xs font-bold text-brand-gold uppercase tracking-widest mb-3 block font-sans">
                   Step 1: Choose Your Catering Package
                 </span>
@@ -129,9 +129,9 @@ export function Catering() {
                       key={type}
                       type="button"
                       onClick={() => setMealType(type)}
-                      className={`p-4 rounded-2xl text-left border transition-all cursor-pointer flex flex-col justify-between ${
+                      className={`p-4 rounded-lg text-left border transition-all cursor-pointer flex flex-col justify-between ${
                         mealType === type
-                          ? 'bg-brand-espresso text-brand-cream border-brand-espresso shadow-md'
+                          ? 'bg-brand-forest text-brand-cream border-brand-espresso shadow-md'
                           : 'bg-brand-cream/15 text-brand-espresso border-gray-200 hover:bg-brand-cream/30'
                       }`}
                     >
@@ -159,7 +159,7 @@ export function Catering() {
               </div>
 
               {/* Guests Count Slider */}
-              <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+              <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
                   <div>
                     <span className="text-xs font-bold text-brand-gold uppercase tracking-widest block font-sans">
@@ -169,7 +169,7 @@ export function Catering() {
                       How many guests are you feeding?
                     </span>
                   </div>
-                  <span className="text-xl font-mono font-bold text-brand-cream bg-brand-espresso px-4 py-1.5 rounded-full shadow-sm">
+                  <span className="text-xl font-mono font-bold text-brand-cream bg-brand-forest px-4 py-1.5 rounded-full shadow-sm">
                     {guests} guests
                   </span>
                 </div>
@@ -192,7 +192,7 @@ export function Catering() {
               </div>
 
               {/* Real-time Food Volume Recommendations */}
-              <div className="bg-brand-espresso text-brand-cream rounded-3xl p-6 relative overflow-hidden shadow-md">
+              <div className="bg-brand-forest text-brand-cream rounded-lg p-6 relative overflow-hidden shadow-md">
                 <div className="absolute right-0 bottom-0 translate-x-12 translate-y-12 opacity-5 pointer-events-none">
                   <ChefHat className="w-56 h-56" />
                 </div>
@@ -207,7 +207,7 @@ export function Catering() {
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="bg-white/10 p-4 rounded-2xl border border-white/5 text-center">
+                  <div className="kp-stat-tile">
                     <span className="text-brand-gold text-xs font-bold uppercase block tracking-wider mb-1 font-sans">
                       Pitas
                     </span>
@@ -219,7 +219,7 @@ export function Catering() {
                     </span>
                   </div>
 
-                  <div className="bg-white/10 p-4 rounded-2xl border border-white/5 text-center">
+                  <div className="kp-stat-tile">
                     <span className="text-brand-gold text-xs font-bold uppercase block tracking-wider mb-1 font-sans">
                       Skewers
                     </span>
@@ -231,7 +231,7 @@ export function Catering() {
                     </span>
                   </div>
 
-                  <div className="bg-white/10 p-4 rounded-2xl border border-white/5 text-center">
+                  <div className="kp-stat-tile">
                     <span className="text-brand-gold text-xs font-bold uppercase block tracking-wider mb-1 font-sans">
                       Hummus Bowls
                     </span>
@@ -243,7 +243,7 @@ export function Catering() {
                     </span>
                   </div>
 
-                  <div className="bg-white/10 p-4 rounded-2xl border border-white/5 text-center">
+                  <div className="kp-stat-tile">
                     <span className="text-brand-gold text-xs font-bold uppercase block tracking-wider mb-1 font-sans">
                       Salad Trays
                     </span>
@@ -274,7 +274,7 @@ export function Catering() {
             </div>
 
             {/* Right Column: Booking Form (5 Cols) */}
-            <div className="lg:col-span-5 bg-white p-8 rounded-3xl border border-gray-100 shadow-md">
+            <div className="lg:col-span-5 bg-white p-8 rounded-lg border border-gray-100 shadow-md">
               <div className="flex gap-3 items-center pb-4 border-b border-gray-100 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center text-brand-gold">
                   <Calendar className="w-5 h-5" />
@@ -295,7 +295,7 @@ export function Catering() {
                     Contact Name
                   </label>
                   <div className="relative">
-                    <User className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                    <User className="kp-input-icon" />
                     <input
                       type="text"
                       placeholder="Your full name"
@@ -313,7 +313,7 @@ export function Catering() {
                       Phone Number
                     </label>
                     <div className="relative">
-                      <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                      <Phone className="kp-input-icon" />
                       <input
                         type="tel"
                         placeholder="(905) 886-7444"
@@ -330,7 +330,7 @@ export function Catering() {
                       Email Address
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                      <Mail className="kp-input-icon" />
                       <input
                         type="email"
                         placeholder="sarah@domain.ca"
@@ -378,7 +378,7 @@ export function Catering() {
 
                 <button
                   type="submit"
-                  className="w-full bg-brand-espresso text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-semibold py-3.5 rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
+                  className="w-full bg-brand-forest text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-semibold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
                 >
                   Request Catering Quote
                   <ArrowRight className="w-4 h-4" />
@@ -388,8 +388,8 @@ export function Catering() {
 
           </div>
         ) : (
-          <div className="max-w-2xl mx-auto bg-white p-12 rounded-3xl border border-gray-100 text-center shadow-lg">
-            <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="max-w-2xl mx-auto bg-white p-12 rounded-lg border border-gray-100 text-center shadow-lg">
+            <div className="kp-success-icon">
               <CheckCircle2 className="w-8 h-8" />
             </div>
 
@@ -441,7 +441,7 @@ export function Catering() {
                 setEventDate('');
                 setNotes('');
               }}
-              className="bg-brand-espresso text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-bold text-xs px-8 py-3.5 rounded-full transition-all cursor-pointer"
+              className="bg-brand-forest text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-bold text-xs px-8 py-3.5 rounded-lg transition-all cursor-pointer"
             >
               Plan Another Event
             </button>

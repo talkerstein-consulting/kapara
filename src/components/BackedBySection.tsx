@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 export function BackedBySection() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  // Same approach as the hero marquee: a plain CSS animation that keeps
+  // scrolling smoothly, slowed via the Web Animations API's `playbackRate`
+  // on hover (continuous, no position jump) instead of pausing outright.
+  const setMarqueeSpeed = (rate: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    for (const anim of track.getAnimations()) {
+      anim.playbackRate = rate;
+    }
+  };
+
   const standards = [
-    { name: 'COR KOSHER CERTIFIED MEAT', style: { fontFamily: "'Inria Serif', serif", fontWeight: 700, letterSpacing: '0.04em', fontSize: '15px' } },
-    { name: 'FLAME-GRILLED HOURLY', style: { fontFamily: 'sans-serif', fontWeight: 600, letterSpacing: '0.08em', fontSize: '13px' } },
-    { name: 'OPEN CHARCOAL FIRE', style: { fontFamily: 'monospace', fontWeight: 500, letterSpacing: '0.1em', fontSize: '13px' } },
-    { name: 'HOUSE-MADE MARINADES', style: { fontFamily: "'Inria Serif', serif", fontWeight: 700, letterSpacing: '0.04em', fontSize: '15px' } },
-    { name: 'TRADITIONAL RECIPES', style: { fontFamily: 'sans-serif', fontWeight: 600, letterSpacing: '0.08em', fontSize: '13px' } },
-    { name: 'FRESH MEDITERRANEAN HERBS', style: { fontFamily: 'monospace', fontWeight: 500, letterSpacing: '0.1em', fontSize: '13px' } },
-    { name: 'LOCAL THORNHILL SOURCE', style: { fontFamily: "'Inria Serif', serif", fontWeight: 700, letterSpacing: '0.04em', fontSize: '15px' } },
-    { name: 'CRISPY TO ORDER', style: { fontFamily: 'sans-serif', fontWeight: 600, letterSpacing: '0.08em', fontSize: '13px' } },
+    'COR KOSHER CERTIFIED MEAT',
+    'FLAME-GRILLED HOURLY',
+    'OPEN CHARCOAL FIRE',
+    'HOUSE-MADE MARINADES',
+    'TRADITIONAL RECIPES',
+    'FRESH MEDITERRANEAN HERBS',
+    'LOCAL THORNHILL SOURCE',
+    'CRISPY TO ORDER',
   ];
 
   return (
@@ -28,9 +41,6 @@ export function BackedBySection() {
           width: max-content;
           animation: backers-marquee 30s linear infinite;
         }
-        .backers-track:hover {
-          animation-play-state: paused;
-        }
       `}</style>
 
       <div className="max-w-[88rem] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
@@ -42,30 +52,35 @@ export function BackedBySection() {
         </div>
 
         {/* Right column (3/4) */}
-        <div id="backed-by-marquee-container" className="md:col-span-3 overflow-hidden select-none relative w-full">
+        <div
+          id="backed-by-marquee-container"
+          className="md:col-span-3 overflow-hidden select-none relative w-full"
+          onMouseEnter={() => setMarqueeSpeed(0.15)}
+          onMouseLeave={() => setMarqueeSpeed(1)}
+        >
           {/* Subtle horizontal blur mask to blend edges smoothly */}
           <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-brand-cream to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-brand-cream to-transparent z-10 pointer-events-none" />
 
-          <div className="backers-track">
+          <div ref={trackRef} className="backers-track">
             {/* First render of standards list */}
-            {standards.map((standard, idx) => (
+            {standards.map((name, idx) => (
               <span
                 key={`standard-1-${idx}`}
-                className="mx-10 shrink-0 text-brand-gold hover:text-brand-espresso transition-colors duration-200 cursor-default whitespace-nowrap align-middle self-center font-semibold"
-                style={standard.style}
+                className="shrink-0 inline-flex items-center text-brand-gold hover:text-brand-espresso transition-colors duration-200 cursor-default whitespace-nowrap font-sans font-bold text-sm tracking-widest uppercase"
               >
-                {standard.name}
+                {name}
+                <span className="mx-8 text-brand-espresso/30 text-xs" aria-hidden="true">✦</span>
               </span>
             ))}
             {/* Second render of standards list for seamless looping */}
-            {standards.map((standard, idx) => (
+            {standards.map((name, idx) => (
               <span
                 key={`standard-2-${idx}`}
-                className="mx-10 shrink-0 text-brand-gold hover:text-brand-espresso transition-colors duration-200 cursor-default whitespace-nowrap align-middle self-center font-semibold"
-                style={standard.style}
+                className="shrink-0 inline-flex items-center text-brand-gold hover:text-brand-espresso transition-colors duration-200 cursor-default whitespace-nowrap font-sans font-bold text-sm tracking-widest uppercase"
               >
-                {standard.name}
+                {name}
+                <span className="mx-8 text-brand-espresso/30 text-xs" aria-hidden="true">✦</span>
               </span>
             ))}
           </div>
