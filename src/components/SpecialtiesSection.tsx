@@ -35,7 +35,7 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
       <div className="max-w-[88rem] mx-auto">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-3 font-sans uppercase tracking-widest">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-3 font-sans uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5" /> Signature Classics
           </div>
           <h2 className="text-brand-espresso text-4xl md:text-5xl font-serif font-bold mb-4 tracking-tight">
@@ -70,7 +70,7 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
                   <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent pointer-events-none md:hidden" />
                   
                   {/* Floating Badge */}
-                  <span className="absolute top-4 left-4 inline-flex items-center gap-1 bg-brand-forest text-brand-cream text-[10px] font-bold font-sans uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-10">
+                  <span className="absolute top-4 left-4 inline-flex items-center gap-1 bg-brand-forest text-brand-cream text-sm font-bold font-sans uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-10">
                     <Sparkles className="w-2.5 h-2.5 text-brand-gold" /> {item.badge}
                   </span>
                 </div>
@@ -82,7 +82,7 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
                       <span className={`p-1.5 rounded-lg border ${item.color}`}>
                         <Icon className="w-4 h-4" />
                       </span>
-                      <span className="text-xs font-bold uppercase tracking-widest text-brand-espresso/60 font-sans">
+                      <span className="text-sm font-bold uppercase tracking-widest text-brand-espresso/60 font-sans">
                         {item.subtitle}
                       </span>
                     </div>
@@ -91,7 +91,7 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
                       {item.title}
                     </h3>
 
-                    <p className="text-brand-espresso/75 text-sm leading-relaxed font-sans mb-8">
+                    <p className="text-brand-espresso/75 text-base leading-relaxed font-sans mb-8">
                       {item.desc}
                     </p>
                   </div>

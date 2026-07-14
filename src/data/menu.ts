@@ -179,7 +179,7 @@ export const BAKERY_ITEMS: BakeryItem[] = [
     desc: '5oz Canadian beef patty topped with hummus, pickles, banana peppers, tomatoes, lettuce, ketchup, & mayonnaise. Add Fries $2.',
     price: 17.00,
     category: 'more',
-    image: '/menu/burger.jpg',
+    image: '/menu/kapara-burger.jpeg',
     dietary: ['COR Kosher', 'Meat']
   },
   {
@@ -188,7 +188,7 @@ export const BAKERY_ITEMS: BakeryItem[] = [
     desc: '5oz Canadian beef patty topped with lettuce, tomato, pickles, ketchup, & mayonnaise. Add Fries $2, Add Parve Cheese $2.',
     price: 17.00,
     category: 'more',
-    image: '/menu/burger.jpg',
+    image: '/menu/american-burger.jpeg',
     dietary: ['COR Kosher', 'Meat']
   },
   {
@@ -197,7 +197,7 @@ export const BAKERY_ITEMS: BakeryItem[] = [
     desc: 'Homemade crispy chicken burger on a sesame seed bun, with lettuce & mayonnaise. Add Fries $2.',
     price: 15.00,
     category: 'more',
-    image: '/menu/chicken-burger.jpg',
+    image: '/menu/mc-cheekan-burger.jpeg',
     dietary: ['COR Kosher', 'Meat']
   },
   {

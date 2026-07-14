@@ -52,7 +52,7 @@ export function UseCasesSection({ onLearnMore }: UseCasesSectionProps) {
         
         {/* Left Column */}
         <div id="use-cases-left" className="md:pr-12 md:pt-2">
-          <span className="text-brand-gold text-sm font-semibold tracking-wider uppercase block mb-2 font-sans">
+          <span className="kp-eyebrow">
             Kapara Bistro Classics
           </span>
           <h2
@@ -154,7 +154,7 @@ export function UseCasesSection({ onLearnMore }: UseCasesSectionProps) {
                 <div className="w-9 h-9 rounded-full bg-brand-cream/95 backdrop-blur-md flex items-center justify-center group-hover:bg-white transition-colors">
                   <ArrowRight className="w-4 h-4 text-brand-espresso group-hover:translate-x-0.5 transition-transform" />
                 </div>
-                <span className="text-brand-cream group-hover:text-brand-gold font-semibold text-base tracking-wide transition-colors">
+                <span className="text-brand-cream group-hover:text-brand-gold-light font-semibold text-base tracking-wide transition-colors">
                   Pre-Order Catering
                 </span>
               </button>

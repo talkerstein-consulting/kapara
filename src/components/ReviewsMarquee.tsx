@@ -26,18 +26,13 @@ function Stars({ count = 5 }: { count?: number }) {
 }
 
 function ReviewCard({ review, index }: { review: Review; index: number }) {
-  const tilt = index % 2 === 0 ? -1.6 : 1.6;
   return (
-    <figure
-      className={`kp-review-card kp-review-card--tone-${index % 4}`}
-      style={{ '--tilt': `${tilt}deg` } as React.CSSProperties}
-    >
-      {review.emoji && <span className="kp-review-emoji" aria-hidden="true">{review.emoji}</span>}
+    <figure className={`kp-review-card ${index % 2 === 0 ? 'kp-review-card--beige' : ''}`}>
       <Stars count={review.stars} />
-      <blockquote className="m-0 font-sans font-semibold text-sm leading-relaxed text-brand-espresso">
+      <blockquote className="m-0 font-sans font-semibold text-base leading-relaxed text-brand-espresso">
         {review.quote}
       </blockquote>
-      <figcaption className="flex items-center gap-2 mt-auto pt-1 font-sans text-xs tracking-wide">
+      <figcaption className="flex items-center gap-2 mt-auto pt-1 font-sans text-sm tracking-wide">
         <GoogleG />
         <span className="font-bold uppercase tracking-wider text-brand-espresso">{review.name}</span>
         <span className="text-brand-espresso/50">on Google</span>
@@ -157,12 +152,12 @@ export function ReviewsMarquee() {
   const rowB = REVIEWS.slice(mid);
 
   return (
-    <section id="reviews-band" className="bg-brand-cream/30 px-6 py-16 md:py-24" aria-label="Google reviews">
+    <section id="reviews-band" className="bg-white px-6 py-16 md:py-24" aria-label="Google reviews">
       <div className="max-w-[88rem] mx-auto">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
           <div>
-            <span className="kp-eyebrow">We'd never brag — so they did</span>
-            <h2 className="font-serif font-bold text-brand-espresso text-4xl md:text-5xl leading-none tracking-tight">
+            <span className="kp-eyebrow">Straight From Our Customers</span>
+            <h2 className="kp-heading mb-0">
               {GOOGLE_RATING} Stars From {GOOGLE_REVIEW_COUNT} Reviews.
             </h2>
           </div>
@@ -170,14 +165,14 @@ export function ReviewsMarquee() {
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-white border border-gray-200 text-brand-espresso font-sans font-bold text-xs uppercase tracking-widest px-5 py-3 rounded-lg hover:bg-brand-forest hover:text-white hover:border-brand-forest transition-colors shadow-sm shrink-0"
+            className="inline-flex items-center gap-2 bg-white border border-gray-200 text-brand-espresso font-sans font-bold text-sm uppercase tracking-widest px-5 py-3 rounded-lg hover:bg-brand-forest hover:text-white hover:border-brand-forest transition-colors shadow-sm shrink-0"
           >
             Read all on Google
             <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>
 
-        <div className="rounded-lg border-2 border-dashed border-brand-espresso/20 bg-white/40 overflow-hidden flex flex-col gap-3">
+        <div className="rounded-lg overflow-hidden flex flex-col gap-4">
           {twoRows ? (
             <>
               <MarqueeRow reviews={rowA} direction={1} />

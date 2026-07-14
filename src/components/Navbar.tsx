@@ -14,10 +14,10 @@ export function Navbar({ activePage = 'home' }: NavbarProps) {
   const navLinks: { id: string; label: string; href: string }[] = [
     { id: 'home', label: 'Home', href: '/' },
     { id: 'about', label: 'About Us', href: '/about' },
-    { id: 'location', label: 'Contact Us', href: '/location' },
     { id: 'menu', label: 'Menu', href: '/menu' },
     { id: 'catering', label: 'Catering', href: '/catering' },
     { id: 'reservations', label: 'Reservations', href: '/reservations' },
+    { id: 'location', label: 'Contact Us', href: '/location' },
   ];
 
   return (
@@ -123,7 +123,7 @@ export function Navbar({ activePage = 'home' }: NavbarProps) {
               target="_blank"
               rel="noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center bg-brand-forest text-white text-base font-bold py-3 rounded-lg hover:bg-brand-gold transition-colors cursor-pointer"
+              className="block w-full text-center bg-brand-forest text-white text-base font-bold py-3 rounded-lg hover:bg-white hover:text-brand-forest transition-colors cursor-pointer"
             >
               Order Online
             </a>

@@ -2,6 +2,8 @@
 import '../index.css';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
+import { HoursAndMapSection } from '../components/HoursAndMapSection';
+import { InstagramGallery } from '../components/InstagramGallery';
 
 interface Props {
   title?: string;
@@ -27,8 +29,59 @@ const {
       <Navbar client:load activePage={active} />
       <main id="main-content-canvas" class="flex-1">
         <slot />
+        {/* Global on every page — single source of truth in data/business.ts,
+            so hours/social updates there propagate everywhere automatically. */}
+        <HoursAndMapSection client:visible />
+        <InstagramGallery client:visible />
       </main>
       <Footer />
     </div>
+    <script>
+      // Site-wide scroll-entrance: fades/slides any .kp-reveal element into
+      // place the first time it enters the viewport. Plain IntersectionObserver
+      // (no framework, no bundle cost) so it never delays first paint or
+      // interaction — elements are visible immediately if JS is slow/blocked.
+      //
+      // Most .kp-reveal targets live inside React islands (client:load) that
+      // hydrate asynchronously, often after this script's own DOMContentLoaded
+      // timing — so a one-shot querySelectorAll here would miss them. A
+      // MutationObserver picks up anything mounted after the fact.
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('kp-reveal-in');
+              io.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      const seen = new WeakSet();
+      const observeNew = (root: ParentNode) => {
+        root.querySelectorAll('.kp-reveal').forEach((el) => {
+          if (!seen.has(el)) {
+            seen.add(el);
+            io.observe(el);
+          }
+        });
+      };
+
+      observeNew(document);
+      const mo = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          for (const node of m.addedNodes) {
+            if (!(node instanceof Element)) continue;
+            if (node.classList.contains('kp-reveal') && !seen.has(node)) {
+              seen.add(node);
+              io.observe(node);
+            }
+            observeNew(node);
+          }
+        }
+      });
+      mo.observe(document.body, { childList: true, subtree: true });
+    </script>
   </body>
 </html>

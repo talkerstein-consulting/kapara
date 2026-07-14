@@ -87,7 +87,7 @@ export function About() {
                 <h4 className="font-serif font-bold text-xl text-brand-espresso mb-2">
                   {value.title}
                 </h4>
-                <p className="text-sm text-brand-espresso/70 leading-relaxed font-sans">
+                <p className="text-base text-brand-espresso/70 leading-relaxed font-sans">
                   {value.desc}
                 </p>
               </motion.div>
@@ -111,14 +111,14 @@ export function About() {
               href={ORDER_ONLINE_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-brand-espresso hover:bg-brand-gold hover:text-white font-sans font-bold text-sm px-7 py-3.5 rounded-lg transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 bg-white text-brand-espresso border border-white hover:bg-brand-forest hover:text-white hover:border-white font-sans font-bold text-sm px-7 py-3.5 rounded-lg transition-all cursor-pointer"
             >
               Order Online
               <ArrowRight className="w-4 h-4" />
             </a>
             <button
               onClick={() => { window.location.href = '/reservations'; }}
-              className="inline-flex items-center gap-2 bg-white text-brand-espresso border border-white hover:bg-brand-gold hover:text-white font-sans font-bold text-sm px-7 py-3.5 rounded-lg transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 bg-white text-brand-espresso border border-white hover:bg-brand-forest hover:text-white hover:border-white font-sans font-bold text-sm px-7 py-3.5 rounded-lg transition-all cursor-pointer"
             >
               Book a Table
             </button>

@@ -1,18 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MapPin } from 'lucide-react';
-
-// index 0=Sun..6=Sat. `close` may exceed 1440 for shifts that cross midnight.
-const SCHEDULE: ({ open: number; close: number } | null)[] = [
-  { open: 12 * 60, close: 22 * 60 },        // Sun: 12–10 PM
-  { open: 12 * 60, close: 22 * 60 },        // Mon: 12–10 PM
-  { open: 12 * 60, close: 22 * 60 },        // Tue: 12–10 PM
-  { open: 12 * 60, close: 22 * 60 },        // Wed: 12–10 PM
-  { open: 12 * 60, close: 22 * 60 },        // Thu: 12–10 PM
-  { open: 10 * 60, close: 15 * 60 + 30 },   // Fri: 10 AM–3:30 PM
-  { open: 22 * 60, close: 24 * 60 + 30 },   // Sat: 10 PM–12:30 AM
-];
-
-const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+import { SCHEDULE, DAY_NAMES, ADDRESS_LINE, GOOGLE_MAPS_DIRECTIONS_URL, fmtClock } from '../data/business';
 
 function torontoNow() {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -28,16 +16,6 @@ function torontoNow() {
   const hour = parseInt(map.hour, 10) % 24;
   const minute = parseInt(map.minute, 10);
   return { day, minutes: hour * 60 + minute };
-}
-
-function fmtClock(mins: number) {
-  const m = ((mins % 1440) + 1440) % 1440;
-  const h = Math.floor(m / 60);
-  const min = m % 60;
-  const ampm = h >= 12 ? 'PM' : 'AM';
-  let h12 = h % 12;
-  if (h12 === 0) h12 = 12;
-  return `${h12}${min ? ':' + String(min).padStart(2, '0') : ''} ${ampm}`;
 }
 
 function fmtDuration(mins: number) {
@@ -109,7 +87,7 @@ export function StoreHours() {
     <div id="store-hours-card" className="bg-brand-forest text-brand-cream rounded-lg p-6 md:p-8 shadow-sm w-full h-full">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
         <h3 className="font-serif font-bold text-xl md:text-2xl tracking-tight">Store Hours</h3>
-        <span className="inline-flex items-center gap-2 text-xs font-bold font-sans px-3 py-1.5 rounded-lg bg-white text-brand-espresso">
+        <span className="inline-flex items-center gap-2 text-sm font-bold font-sans px-3 py-1.5 rounded-lg bg-white text-brand-espresso">
           <span className="relative inline-flex w-1.5 h-1.5">
             <span className={`absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping ${isOpenNow ? 'bg-green-500' : 'bg-red-500'}`} />
             <span className={`relative inline-flex w-1.5 h-1.5 rounded-full ${isOpenNow ? 'bg-green-500' : 'bg-red-500'}`} />
@@ -119,13 +97,13 @@ export function StoreHours() {
       </div>
 
       <a
-        href="https://maps.google.com/?q=7700+Bathurst+St+Unit+12+Thornhill+ON+L4J+0A7"
+        href={GOOGLE_MAPS_DIRECTIONS_URL}
         target="_blank"
         rel="noreferrer"
         className="inline-flex items-center gap-2 text-sm text-brand-cream/70 hover:text-brand-cream transition-colors font-sans mb-6"
       >
         <MapPin className="w-4 h-4 text-brand-gold shrink-0" />
-        7700 Bathurst St, Unit 12, Thornhill, ON L4J 0A7
+        {ADDRESS_LINE}
       </a>
 
       <ul className="flex flex-col gap-1">
@@ -145,7 +123,7 @@ export function StoreHours() {
               <span className="flex items-center gap-2 font-semibold">
                 {name}
                 {isToday && (
-                  <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-lg bg-white text-brand-espresso">
+                  <span className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wider px-2 py-0.5 rounded-lg bg-white text-brand-espresso">
                     <span className="relative inline-flex w-1.5 h-1.5">
                       <span className={`absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping ${isOpenNow ? 'bg-green-500' : 'bg-red-500'}`} />
                       <span className={`relative inline-flex w-1.5 h-1.5 rounded-full ${isOpenNow ? 'bg-green-500' : 'bg-red-500'}`} />

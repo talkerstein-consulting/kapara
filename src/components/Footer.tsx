@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Instagram } from 'lucide-react';
 import { TikTokIcon } from './icons/TikTokIcon';
+import { DAY_NAMES, scheduleLabel, ADDRESS_LINE, INSTAGRAM_URL, TIKTOK_URL } from '../data/business';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,17 +20,11 @@ export function Footer() {
       { label: 'Bar & Bat Mitzvahs', href: '/catering' },
       { label: 'Shabbat & Holidays', href: '/catering' },
     ],
-    hours: [
-      { day: 'Sunday', label: '12 PM – 10 PM' },
-      { day: 'Monday', label: '12 PM – 10 PM' },
-      { day: 'Tuesday', label: '12 PM – 10 PM' },
-      { day: 'Wednesday', label: '12 PM – 10 PM' },
-      { day: 'Thursday', label: '12 PM – 10 PM' },
-      { day: 'Friday', label: '10 AM – 3:30 PM' },
-      { day: 'Saturday', label: '10 PM – 12:30 AM' },
-    ],
+    // Sourced from the shared SCHEDULE in data/business.ts — update hours
+    // there and this list (and the live Store Hours widget) both follow.
+    hours: DAY_NAMES.map((day, idx) => ({ day, label: scheduleLabel(idx) })),
     contact: [
-      { icon: MapPin, label: '7700 Bathurst St, Unit 12, Thornhill, ON L4J 0A7' },
+      { icon: MapPin, label: ADDRESS_LINE },
       { icon: Phone, label: 'Phone: (905) 886-7444' },
       { icon: Mail, label: 'info@kapara.ca' },
     ],
@@ -54,7 +49,7 @@ export function Footer() {
                 className="h-10 w-auto"
               />
             </a>
-            <p className="text-sm text-brand-cream/75 max-w-xs leading-relaxed font-sans mb-6">
+            <p className="text-base text-brand-cream/75 max-w-xs leading-relaxed font-sans mb-6">
               Serving premium flame-grilled kosher skewers, legendary golden schnitzels, loaded street fries, and creamy house-made hummus in Thornhill/Vaughan.
             </p>
             <div className="flex items-center gap-2 bg-white border border-white/20 p-2.5 px-3.5 rounded-2xl shadow-xs">
@@ -63,14 +58,14 @@ export function Footer() {
                 alt="COR Kosher Certified"
                 className="h-8 w-auto object-contain"
               />
-              <span className="text-xs font-semibold text-brand-espresso font-sans">
+              <span className="text-sm font-semibold text-brand-espresso font-sans">
                 100% COR Kosher Certified Meat
               </span>
             </div>
 
             <div className="flex items-center gap-3 mt-6">
               <a
-                href="https://www.instagram.com/kaparatoronto/?hl=en"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Kapara on Instagram"
@@ -79,7 +74,7 @@ export function Footer() {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://www.tiktok.com/@kaparatoronto"
+                href={TIKTOK_URL}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Kapara on TikTok"
@@ -160,7 +155,7 @@ export function Footer() {
         {/* Bottom Disclaimer and Copyright */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-[11px] text-brand-cream/60 leading-relaxed font-sans">
+            <p className="text-base text-brand-cream/60 leading-relaxed font-sans">
               Supervision: Kapara Bistro & Grill is operated under strict Kashruth Council of Canada (COR) Kosher meat supervision. All meats are premium Glatt Kosher. For detailed inquiries regarding our kashruth procedures, ingredients, or private event catering, please feel free to speak with our supervisor on-site or contact us directly.
             </p>
           </div>
@@ -172,17 +167,17 @@ export function Footer() {
               className="inline-flex items-center group"
             >
               <img
-                src="/brand/talkerstein-logo.svg"
+                src="/brand/talkerstein-consulting-kapara.svg"
                 alt="Talkerstein Consulting Group"
-                className="h-4 w-auto max-w-[240px] opacity-70 group-hover:opacity-100 transition-opacity brightness-0 invert"
+                className="h-6 w-auto max-w-[300px] opacity-90 group-hover:opacity-100 transition-opacity brightness-0 invert"
               />
             </a>
             <div className="flex flex-wrap items-center gap-4">
-              <span className="text-xs text-brand-cream/70 whitespace-nowrap">
+              <span className="text-sm text-brand-cream/70 whitespace-nowrap">
                 &copy; {currentYear} Kapara. All rights reserved.
               </span>
-              <span className="text-xs text-brand-cream/50 hover:text-brand-gold-light transition-colors cursor-pointer">Terms of Taste</span>
-              <span className="text-xs text-brand-cream/50 hover:text-brand-gold-light transition-colors cursor-pointer">Privacy Policy</span>
+              <span className="text-sm text-brand-cream/50 hover:text-brand-gold-light transition-colors cursor-pointer">Terms of Taste</span>
+              <span className="text-sm text-brand-cream/50 hover:text-brand-gold-light transition-colors cursor-pointer">Privacy Policy</span>
             </div>
           </div>
         </div>

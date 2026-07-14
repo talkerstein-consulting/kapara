@@ -100,12 +100,12 @@ export function Catering() {
           {servicePillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
-              <div key={idx} className="bg-white p-6 rounded-lg border border-gray-100 shadow-3xs flex flex-col items-start">
+              <div key={idx} className="kp-reveal kp-hover-lift bg-white p-6 rounded-lg border border-gray-100 shadow-3xs flex flex-col items-start">
                 <div className="w-11 h-11 rounded-2xl bg-brand-gold/15 text-brand-gold flex items-center justify-center mb-4">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-serif font-bold text-lg text-brand-espresso mb-1.5">{pillar.title}</h3>
-                <p className="text-xs text-brand-espresso/70 leading-relaxed font-sans">{pillar.desc}</p>
+                <p className="text-base text-brand-espresso/70 leading-relaxed font-sans">{pillar.desc}</p>
               </div>
             );
           })}
@@ -119,7 +119,7 @@ export function Catering() {
 
               {/* Package Selection Box */}
               <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
-                <span className="text-xs font-bold text-brand-gold uppercase tracking-widest mb-3 block font-sans">
+                <span className="text-sm font-bold text-brand-gold uppercase tracking-widest mb-3 block font-sans">
                   Step 1: Choose Your Catering Package
                 </span>
 
@@ -135,15 +135,15 @@ export function Catering() {
                           : 'bg-brand-cream/15 text-brand-espresso border-gray-200 hover:bg-brand-cream/30'
                       }`}
                     >
-                      <span className={`text-xs font-bold uppercase tracking-wider mb-2 block ${
-                        mealType === type ? 'text-brand-gold' : 'text-brand-gold/80'
+                      <span className={`text-sm font-bold uppercase tracking-wider mb-2 block ${
+                        mealType === type ? 'text-brand-gold-light' : 'text-brand-gold/80'
                       }`}>
                         {configs[type].tag}
                       </span>
-                      <span className="font-serif font-bold text-sm block mb-1">
+                      <span className={`font-serif font-bold text-sm block mb-1 ${mealType === type ? 'text-white' : ''}`}>
                         {configs[type].label}
                       </span>
-                      <span className="text-xs font-mono font-semibold mt-4 block">
+                      <span className={`text-sm font-mono font-semibold mt-4 block ${mealType === type ? 'text-white' : ''}`}>
                         ${configs[type].rate.toFixed(2)}/guest
                       </span>
                     </button>
@@ -151,7 +151,7 @@ export function Catering() {
                 </div>
 
                 <div className="bg-brand-cream/20 p-4 rounded-xl border border-gray-100">
-                  <p className="text-xs text-brand-espresso/85 leading-relaxed font-sans">
+                  <p className="text-base text-brand-espresso/85 leading-relaxed font-sans">
                     <span className="font-bold block mb-0.5 text-brand-espresso font-serif">Package Details:</span>
                     {activeConfig.desc}
                   </p>
@@ -162,7 +162,7 @@ export function Catering() {
               <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
                   <div>
-                    <span className="text-xs font-bold text-brand-gold uppercase tracking-widest block font-sans">
+                    <span className="text-sm font-bold text-brand-gold uppercase tracking-widest block font-sans">
                       Step 2: Guest Count
                     </span>
                     <span className="text-sm font-serif font-bold text-brand-espresso">
@@ -184,7 +184,7 @@ export function Catering() {
                   className="w-full accent-brand-gold cursor-pointer h-2 bg-gray-200 rounded-lg appearance-none my-4"
                 />
 
-                <div className="flex justify-between text-[11px] text-brand-espresso/50 font-sans">
+                <div className="flex justify-between text-sm text-brand-espresso/50 font-sans">
                   <span>10 guests (Min)</span>
                   <span>100 guests</span>
                   <span>200 guests (Max)</span>
@@ -198,59 +198,59 @@ export function Catering() {
                 </div>
 
                 <div className="flex justify-between items-center mb-4 pb-4 border-b border-brand-cream/15">
-                  <span className="text-brand-gold text-xs font-bold tracking-widest uppercase font-sans">
+                  <span className="text-brand-gold-light text-sm font-bold tracking-widest uppercase font-sans">
                     Step 3: Recommended Amounts
                   </span>
-                  <span className="bg-brand-gold text-brand-espresso text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide uppercase font-sans">
+                  <span className="bg-white text-brand-forest text-sm font-bold px-2 py-0.5 rounded-full tracking-wide uppercase font-sans">
                     Kosher Certified
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="kp-stat-tile">
-                    <span className="text-brand-gold text-xs font-bold uppercase block tracking-wider mb-1 font-sans">
+                    <span className="text-brand-gold-light text-sm font-bold uppercase block tracking-wider mb-1 font-sans">
                       Pitas
                     </span>
                     <span className="text-2xl font-mono font-bold block text-brand-cream">
                       {estPitas}
                     </span>
-                    <span className="text-[10px] text-brand-cream/60 font-sans block mt-0.5">
+                    <span className="text-sm text-brand-cream/60 font-sans block mt-0.5">
                       Fresh & warm
                     </span>
                   </div>
 
                   <div className="kp-stat-tile">
-                    <span className="text-brand-gold text-xs font-bold uppercase block tracking-wider mb-1 font-sans">
+                    <span className="text-brand-gold-light text-sm font-bold uppercase block tracking-wider mb-1 font-sans">
                       Skewers
                     </span>
                     <span className="text-2xl font-mono font-bold block text-brand-cream">
                       {estSkewers}
                     </span>
-                    <span className="text-[10px] text-brand-cream/60 font-sans block mt-0.5">
+                    <span className="text-sm text-brand-cream/60 font-sans block mt-0.5">
                       Grill & schnitzel
                     </span>
                   </div>
 
                   <div className="kp-stat-tile">
-                    <span className="text-brand-gold text-xs font-bold uppercase block tracking-wider mb-1 font-sans">
+                    <span className="text-brand-gold-light text-sm font-bold uppercase block tracking-wider mb-1 font-sans">
                       Hummus Bowls
                     </span>
                     <span className="text-2xl font-mono font-bold block text-brand-cream">
                       {estHummus}
                     </span>
-                    <span className="text-[10px] text-brand-cream/60 font-sans block mt-0.5">
+                    <span className="text-sm text-brand-cream/60 font-sans block mt-0.5">
                       Mezze & dips
                     </span>
                   </div>
 
                   <div className="kp-stat-tile">
-                    <span className="text-brand-gold text-xs font-bold uppercase block tracking-wider mb-1 font-sans">
+                    <span className="text-brand-gold-light text-sm font-bold uppercase block tracking-wider mb-1 font-sans">
                       Salad Trays
                     </span>
                     <span className="text-2xl font-mono font-bold block text-brand-cream">
                       {estSalads}
                     </span>
-                    <span className="text-[10px] text-brand-cream/60 font-sans block mt-0.5">
+                    <span className="text-sm text-brand-cream/60 font-sans block mt-0.5">
                       Fresh sides
                     </span>
                   </div>
@@ -258,14 +258,14 @@ export function Catering() {
 
                 <div className="mt-6 pt-4 border-t border-brand-cream/15 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
                   <div>
-                    <span className="text-[11px] text-brand-cream/60 block font-semibold uppercase tracking-wider font-sans">
+                    <span className="text-sm text-brand-cream/80 block font-semibold uppercase tracking-wider font-sans">
                       Estimated Catering Subtotal
                     </span>
-                    <span className="text-3xl font-mono font-bold text-brand-gold">
+                    <span className="text-3xl font-mono font-bold text-white">
                       ${totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </span>
                   </div>
-                  <div className="text-[11px] text-brand-cream/70 font-sans bg-white/5 p-2 rounded-xl text-left max-w-xs">
+                  <div className="text-sm text-brand-cream/90 font-sans bg-white/10 p-2 rounded-xl text-left max-w-xs">
                     *Estimate based on current per-guest pricing. Tax, delivery, and optional on-site setup not included.
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export function Catering() {
                   <h3 className="font-serif font-bold text-base text-brand-espresso leading-none">
                     Request Catering
                   </h3>
-                  <span className="text-xs text-brand-espresso/60 font-sans">
+                  <span className="text-sm text-brand-espresso/60 font-sans">
                     Tell us about your event and we will follow up.
                   </span>
                 </div>
@@ -291,7 +291,7 @@ export function Catering() {
 
               <form onSubmit={handleSubmitInquiry} className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-bold text-brand-espresso/60 uppercase px-2 font-sans">
+                  <label className="text-sm font-bold text-brand-espresso/60 uppercase px-2 font-sans">
                     Contact Name
                   </label>
                   <div className="relative">
@@ -309,7 +309,7 @@ export function Catering() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1">
-                    <label className="text-[10px] font-bold text-brand-espresso/60 uppercase px-2 font-sans">
+                    <label className="text-sm font-bold text-brand-espresso/60 uppercase px-2 font-sans">
                       Phone Number
                     </label>
                     <div className="relative">
@@ -326,7 +326,7 @@ export function Catering() {
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="text-[10px] font-bold text-brand-espresso/60 uppercase px-2 font-sans">
+                    <label className="text-sm font-bold text-brand-espresso/60 uppercase px-2 font-sans">
                       Email Address
                     </label>
                     <div className="relative">
@@ -344,7 +344,7 @@ export function Catering() {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-bold text-brand-espresso/60 uppercase px-2 font-sans">
+                  <label className="text-sm font-bold text-brand-espresso/60 uppercase px-2 font-sans">
                     Date of Event
                   </label>
                   <input
@@ -357,7 +357,7 @@ export function Catering() {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-bold text-brand-espresso/60 uppercase px-2 font-sans">
+                  <label className="text-sm font-bold text-brand-espresso/60 uppercase px-2 font-sans">
                     Menu Requests or Dietary Notes
                   </label>
                   <textarea
@@ -369,7 +369,7 @@ export function Catering() {
                   />
                 </div>
 
-                <div className="flex gap-2.5 bg-brand-gold/10 p-3 rounded-2xl border border-brand-gold/20 text-brand-espresso text-xs font-sans">
+                <div className="flex gap-2.5 bg-brand-gold/10 p-3 rounded-2xl border border-brand-gold/20 text-brand-espresso text-sm font-sans">
                   <Info className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
                   <span>
                     No upfront payment required to request a quote. Our team will call you within 1 business day to customize the menu, arrange delivery or on-site setup, and finalize details.
@@ -378,7 +378,7 @@ export function Catering() {
 
                 <button
                   type="submit"
-                  className="w-full bg-brand-forest text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-semibold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
+                  className="w-full bg-brand-forest text-brand-cream hover:bg-white hover:text-brand-forest font-sans font-semibold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
                 >
                   Request Catering Quote
                   <ArrowRight className="w-4 h-4" />
@@ -396,15 +396,15 @@ export function Catering() {
             <h3 className="text-3xl font-serif font-bold text-brand-espresso mb-3 tracking-tight">
               Catering Request Sent!
             </h3>
-            <p className="text-brand-espresso/80 text-sm leading-relaxed mb-8 max-w-md mx-auto font-sans">
+            <p className="text-brand-espresso/80 text-base leading-relaxed mb-8 max-w-md mx-auto font-sans">
               Thank you, <span className="font-semibold text-brand-espresso">{name}</span>! Our events team has received your request for <span className="font-semibold text-brand-espresso">{guests} guests</span> on <span className="font-semibold text-brand-espresso">{eventDate}</span>.
             </p>
 
             <div className="bg-brand-cream/40 p-6 rounded-2xl border border-gray-200 text-left max-w-md mx-auto mb-8 font-sans">
-              <span className="text-xs text-brand-gold block font-semibold uppercase tracking-wider mb-2">
+              <span className="text-sm text-brand-gold block font-semibold uppercase tracking-wider mb-2">
                 Draft Event Estimate
               </span>
-              <div className="space-y-1.5 text-xs text-brand-espresso">
+              <div className="space-y-1.5 text-sm text-brand-espresso">
                 <div className="flex justify-between">
                   <span>Package Selected:</span>
                   <span className="font-bold">{activeConfig.label}</span>
@@ -428,7 +428,7 @@ export function Catering() {
               </div>
             </div>
 
-            <p className="text-xs text-brand-espresso/60 mb-8 max-w-sm mx-auto font-sans">
+            <p className="text-sm text-brand-espresso/60 mb-8 max-w-sm mx-auto font-sans">
               We will confirm availability for your date and reach out shortly at <span className="font-bold">{phone}</span> or <span className="font-bold">{email}</span> to finalize the menu and setup details!
             </p>
 
@@ -441,7 +441,7 @@ export function Catering() {
                 setEventDate('');
                 setNotes('');
               }}
-              className="bg-brand-forest text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-bold text-xs px-8 py-3.5 rounded-lg transition-all cursor-pointer"
+              className="bg-brand-forest text-brand-cream hover:bg-white hover:text-brand-forest font-sans font-bold text-sm px-8 py-3.5 rounded-lg transition-all cursor-pointer"
             >
               Plan Another Event
             </button>

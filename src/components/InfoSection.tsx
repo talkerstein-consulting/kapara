@@ -8,12 +8,12 @@ interface InfoSectionProps {
 
 export function InfoSection({ onDiscover }: InfoSectionProps) {
   return (
-    <section id="menu" className="bg-brand-cream px-6 py-24">
+    <section id="menu" className="bg-white px-6 py-24">
       <div className="max-w-[88rem] mx-auto">
         {/* Row 1: Dual column introduction */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-start">
           <div className="flex flex-col items-start">
-            <span className="text-brand-gold text-xs font-bold tracking-widest uppercase mb-3 block font-sans">
+            <span className="text-brand-gold text-sm font-bold tracking-widest uppercase mb-3 block font-sans">
               Our Values
             </span>
             <h2
@@ -50,7 +50,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
           {/* Card 1 (spans 2 cols on lg) */}
           <div
             id="info-card-bloom"
-            className="rounded-lg lg:col-span-2 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between p-7 min-h-80 relative group"
+            className="kp-reveal rounded-lg lg:col-span-2 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between p-7 min-h-80 relative group"
             style={{
               backgroundImage: 'url("/home/kapara-food-celebration.webp")',
               backgroundSize: 'cover',
@@ -58,10 +58,10 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
             }}
           >
             {/* Ambient overlay to protect text contrast */}
-            <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/80 pointer-events-none group-hover:bg-black/15 transition-colors duration-300" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/20 to-black/95 pointer-events-none" />
 
             <div className="relative z-10">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-cream/90 backdrop-blur-md text-brand-espresso shadow-xs mb-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-brand-cream/90 backdrop-blur-md text-brand-espresso shadow-xs mb-4">
                 <Sparkles className="w-3.5 h-3.5 text-brand-gold" /> Community
               </span>
               <h3
@@ -82,7 +82,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
           {/* Card 2 */}
           <div
             id="info-card-fluid"
-            className="rounded-lg p-7 min-h-80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden"
+            className="kp-reveal rounded-lg p-7 min-h-80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden"
             style={{
               backgroundImage: 'url("/menu/kebab.webp")',
               backgroundSize: 'cover',
@@ -90,7 +90,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
             }}
           >
             {/* Dark overlay for text legibility */}
-            <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/45 to-black/80 pointer-events-none group-hover:from-black/45 group-hover:via-black/35 transition-colors duration-300" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/45 via-black/20 to-black/92 pointer-events-none transition-colors duration-300" />
 
             <div className="relative z-10">
               <div className="kp-icon-badge mb-4 transition-transform duration-500 group-hover:rotate-12">
@@ -101,7 +101,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
               </h3>
             </div>
             <div className="relative z-10">
-              <p className="text-brand-cream/90 text-sm leading-relaxed font-sans">
+              <p className="text-brand-cream/90 text-base leading-relaxed font-sans">
                 Big, bold, and unforgettable. Flame-grilled skewers, golden schnitzels, and creamy house-made hummus, inspired by the food markets of Israel.
               </p>
             </div>
@@ -110,7 +110,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
           {/* Card 3 */}
           <div
             id="info-card-automated"
-            className="rounded-lg p-7 min-h-80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden"
+            className="kp-reveal rounded-lg p-7 min-h-80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden"
             style={{
               backgroundImage: 'url("/menu/loaded-fries.webp")',
               backgroundSize: 'cover',
@@ -118,7 +118,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
             }}
           >
             {/* Dark overlay for text legibility */}
-            <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/45 to-black/80 pointer-events-none group-hover:from-black/45 group-hover:via-black/35 transition-colors duration-300" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/45 via-black/20 to-black/92 pointer-events-none transition-colors duration-300" />
 
             <div className="relative z-10">
               <div className="kp-icon-badge mb-4 transition-transform duration-500 group-hover:scale-110">
@@ -129,7 +129,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
               </h3>
             </div>
             <div className="relative z-10">
-              <p className="text-brand-cream/90 text-sm leading-relaxed font-sans">
+              <p className="text-brand-cream/90 text-base leading-relaxed font-sans">
                 Casual vibes with serious eats. Come for the food, stay for the vibe — a taste of Israel, right here in Toronto.
               </p>
             </div>

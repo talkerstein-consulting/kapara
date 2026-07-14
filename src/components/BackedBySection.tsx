@@ -45,11 +45,11 @@ export function BackedBySection() {
 
       <div className="max-w-[88rem] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
         {/* Left column (1/4) */}
-        <div id="backed-by-text" className="text-brand-espresso/80 text-base leading-relaxed font-serif font-bold md:pr-4">
+        <h2 id="backed-by-text" className="text-brand-espresso text-2xl md:text-3xl leading-tight font-serif font-bold md:pr-4 tracking-tight">
           100% COR Kosher Certified Meat
           <br />
           High Quality, Pristine Standards.
-        </div>
+        </h2>
 
         {/* Right column (3/4) */}
         <div
@@ -70,7 +70,7 @@ export function BackedBySection() {
                 className="shrink-0 inline-flex items-center text-brand-gold hover:text-brand-espresso transition-colors duration-200 cursor-default whitespace-nowrap font-sans font-bold text-sm tracking-widest uppercase"
               >
                 {name}
-                <span className="mx-8 text-brand-espresso/30 text-xs" aria-hidden="true">✦</span>
+                <span className="mx-8 text-brand-espresso/30 text-sm" aria-hidden="true">✦</span>
               </span>
             ))}
             {/* Second render of standards list for seamless looping */}
@@ -80,7 +80,7 @@ export function BackedBySection() {
                 className="shrink-0 inline-flex items-center text-brand-gold hover:text-brand-espresso transition-colors duration-200 cursor-default whitespace-nowrap font-sans font-bold text-sm tracking-widest uppercase"
               >
                 {name}
-                <span className="mx-8 text-brand-espresso/30 text-xs" aria-hidden="true">✦</span>
+                <span className="mx-8 text-brand-espresso/30 text-sm" aria-hidden="true">✦</span>
               </span>
             ))}
           </div>

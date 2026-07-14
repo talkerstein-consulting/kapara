@@ -137,7 +137,7 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-white text-brand-espresso border border-white/40 mb-4 font-sans tracking-wide uppercase shadow-sm"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-bold bg-white text-brand-espresso border border-white/40 mb-4 font-sans tracking-wide uppercase shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5 text-brand-gold animate-pulse" />
               <span>Welcome to Kapara</span>
@@ -208,7 +208,7 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
                 className="shrink-0 inline-flex items-center text-white/75 hover:text-white transition-colors duration-200 cursor-default whitespace-nowrap font-sans font-bold text-sm tracking-widest uppercase"
               >
                 {tag}
-                <span className="mx-8 text-brand-cream text-xs" aria-hidden="true">✦</span>
+                <span className="mx-8 text-brand-cream text-sm" aria-hidden="true">✦</span>
               </span>
             ))}
             {/* Duplicated list of brand tags for looping */}
@@ -218,7 +218,7 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
                 className="shrink-0 inline-flex items-center text-white/75 hover:text-white transition-colors duration-200 cursor-default whitespace-nowrap font-sans font-bold text-sm tracking-widest uppercase"
               >
                 {tag}
-                <span className="mx-8 text-brand-cream text-xs" aria-hidden="true">✦</span>
+                <span className="mx-8 text-brand-cream text-sm" aria-hidden="true">✦</span>
               </span>
             ))}
           </div>

@@ -108,7 +108,7 @@ export function Reservations() {
                     <h3 className="font-serif font-bold text-lg text-brand-espresso leading-none">
                       Reservation Details
                     </h3>
-                    <span className="text-xs text-brand-espresso/60 font-sans">
+                    <span className="text-sm text-brand-espresso/60 font-sans">
                       Tell us when you are coming and we will save your table.
                     </span>
                   </div>
@@ -238,7 +238,7 @@ export function Reservations() {
 
                 <button
                   type="submit"
-                  className="w-full bg-brand-forest text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-semibold py-4 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
+                  className="w-full bg-brand-forest text-brand-cream hover:bg-white hover:text-brand-forest font-sans font-semibold py-4 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
                 >
                   Reserve a Spot
                   <ArrowRight className="w-4 h-4" />
@@ -252,12 +252,12 @@ export function Reservations() {
                 <h3 className="text-3xl font-serif font-bold text-brand-espresso mb-3 tracking-tight">
                   Your Table is Requested!
                 </h3>
-                <p className="text-brand-espresso/80 text-sm max-w-md mx-auto leading-relaxed mb-8 font-sans">
+                <p className="text-brand-espresso/80 text-base max-w-md mx-auto leading-relaxed mb-8 font-sans">
                   Thank you, <span className="font-semibold text-brand-espresso">{name}</span>! We have received your reservation request and our team will confirm shortly by phone or email.
                 </p>
 
                 <div className="bg-brand-cream/40 p-6 rounded-lg border border-gray-200 max-w-sm mx-auto mb-8 shadow-2xs text-left font-sans">
-                  <span className="text-xs text-brand-gold block font-semibold uppercase tracking-wider mb-3">
+                  <span className="text-sm text-brand-gold block font-semibold uppercase tracking-wider mb-3">
                     Reservation Summary
                   </span>
                   <div className="space-y-1.5 text-sm text-brand-espresso">
@@ -290,13 +290,13 @@ export function Reservations() {
                       setDate('');
                       setComments('');
                     }}
-                    className="bg-white border border-gray-200 hover:bg-gray-50 text-brand-espresso font-sans font-bold text-xs px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                    className="bg-white border border-gray-200 hover:bg-gray-50 text-brand-espresso font-sans font-bold text-sm px-6 py-3 rounded-lg transition-colors cursor-pointer"
                   >
                     Make Another Reservation
                   </button>
                   <button
                     onClick={() => { window.location.href = '/menu'; }}
-                    className="bg-brand-forest text-brand-cream hover:bg-brand-gold hover:text-brand-espresso font-sans font-bold text-xs px-6 py-3 rounded-lg transition-all cursor-pointer"
+                    className="bg-brand-forest text-brand-cream hover:bg-white hover:text-brand-forest font-sans font-bold text-sm px-6 py-3 rounded-lg transition-all cursor-pointer"
                   >
                     Browse the Menu
                   </button>
@@ -310,7 +310,7 @@ export function Reservations() {
             <h3 className="text-2xl font-serif font-bold text-brand-espresso tracking-tight">
               Why Book Ahead
             </h3>
-            <p className="text-sm text-brand-espresso/80 leading-relaxed font-sans mb-2">
+            <p className="text-base text-brand-espresso/80 leading-relaxed font-sans mb-2">
               Walk-ins are always welcome, but a quick reservation guarantees your spot on our busiest nights — and lets us roll out the red carpet for celebrations.
             </p>
 
@@ -326,7 +326,7 @@ export function Reservations() {
                       <h4 className="font-serif font-bold text-sm text-brand-espresso mb-1">
                         {item.title}
                       </h4>
-                      <p className="text-xs text-brand-espresso/70 leading-relaxed font-sans">
+                      <p className="text-base text-brand-espresso/70 leading-relaxed font-sans">
                         {item.desc}
                       </p>
                     </div>
@@ -338,15 +338,15 @@ export function Reservations() {
             <div className="bg-brand-forest text-brand-cream rounded-2xl p-5 flex gap-3.5 items-start">
               <Utensils className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider mb-1 font-sans text-brand-gold">
+                <h4 className="text-sm font-bold uppercase tracking-wider mb-1 font-sans text-brand-gold">
                   Planning a bigger event?
                 </h4>
-                <p className="text-xs text-brand-cream/85 leading-relaxed font-sans mb-3">
+                <p className="text-base text-brand-cream/85 leading-relaxed font-sans mb-3">
                   For private events, group buyouts, and full catering, our events team can build the perfect spread for your celebration.
                 </p>
                 <button
                   onClick={() => { window.location.href = '/catering'; }}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-gold hover:text-brand-cream transition-colors cursor-pointer font-sans"
+                  className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-gold hover:text-brand-cream transition-colors cursor-pointer font-sans"
                 >
                   Explore Catering & Events <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -396,7 +396,7 @@ export function Reservations() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <p className="px-6 pb-5 pt-1 text-xs md:text-sm text-brand-espresso/80 leading-relaxed border-t border-gray-50 font-sans">
+                        <p className="px-6 pb-5 pt-1 text-base md:text-base text-brand-espresso/80 leading-relaxed border-t border-gray-50 font-sans">
                           {faq.a}
                         </p>
                       </motion.div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Instagram, ArrowRight, ChevronLeft, ChevronRight, X, Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { INSTAGRAM_URL } from '../data/business';
 
-const INSTAGRAM_URL = 'https://www.instagram.com/kaparatoronto/?hl=en';
 const REEL_COUNT = 14;
 
 function mod(n: number, m: number) {
@@ -72,7 +72,7 @@ export function InstagramGallery() {
   const nextIndex2 = mod(activeIndex + 2, REEL_COUNT);
 
   return (
-    <section id="instagram-gallery" className="bg-brand-cream/30 px-6 py-16 md:py-24" aria-label="Kapara on Instagram">
+    <section id="instagram-gallery" className="bg-white px-6 py-16 md:py-24" aria-label="Kapara on Instagram">
       <div className="max-w-[88rem] mx-auto">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
           <div>
@@ -87,7 +87,7 @@ export function InstagramGallery() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-brand-gold text-white font-sans font-bold text-xs uppercase tracking-widest px-5 py-3 rounded-lg hover:bg-white hover:text-brand-espresso transition-colors shadow-sm shrink-0"
+            className="inline-flex items-center gap-2 bg-brand-gold text-white font-sans font-bold text-sm uppercase tracking-widest px-5 py-3 rounded-lg hover:bg-white hover:text-brand-espresso transition-colors shadow-sm shrink-0"
           >
             Follow on Instagram
             <ArrowRight className="w-3.5 h-3.5" />

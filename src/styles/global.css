@@ -11,18 +11,48 @@
     @apply min-h-screen pt-28 pb-20 px-4 md:px-8;
   }
 
+  /* Scroll entrance: pair with the BaseLayout IntersectionObserver.
+     Starts slightly down + faded, settles in place once visible. Kept
+     short (0.4s) so it reads as "smooth" rather than "slow". */
+  .kp-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .kp-reveal-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .kp-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* Default hover lift for card-like surfaces — fast and subtle so it
+     never feels laggy. Opt in with class="kp-hover-lift". */
+  .kp-hover-lift {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .kp-hover-lift:hover {
+    transform: translateY(-3px);
+    @apply shadow-md;
+  }
+
   /* Centered page header: eyebrow + heading + subtext */
   .kp-section-header {
     @apply text-center max-w-2xl mx-auto mb-16;
   }
   .kp-eyebrow {
-    @apply text-brand-gold text-xs font-bold tracking-widest uppercase mb-2 block font-sans;
+    @apply text-brand-gold text-sm font-bold tracking-widest uppercase mb-2 block font-sans;
   }
   .kp-heading {
     @apply text-4xl md:text-5xl font-serif font-bold text-brand-espresso mb-4 tracking-tight;
   }
   .kp-subtext {
-    @apply text-brand-espresso/80 text-sm md:text-base font-sans;
+    @apply text-brand-espresso/80 text-base md:text-lg font-sans;
   }
 
   /* Standard white content card */
@@ -86,9 +116,7 @@
   /* Google review marquee (Home page, "reviews-band" style) */
   .kp-reviews-track {
     @apply flex gap-5 items-stretch overflow-x-auto cursor-grab;
-    /* top padding clears the emoji badge (offset -14px above the card) so
-       the frame's overflow-hidden doesn't clip it */
-    padding: 30px 18px 14px;
+    padding: 4px 18px 14px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     touch-action: pan-x;
@@ -102,54 +130,21 @@
   .kp-reviews-track.is-dragging .kp-review-card {
     pointer-events: none;
   }
-  /* second row of the two-row desktop layout needs the same top clearance */
-  .kp-reviews-track + .kp-reviews-track {
-    padding-top: 30px;
-  }
 
+  /* Straight, uniform card — no tilt/tone variants, closer to a
+     traditional QSR review tile. */
   .kp-review-card {
-    @apply relative shrink-0 flex flex-col gap-3 p-6 rounded-lg border border-gray-100 shadow-sm bg-white;
+    @apply relative shrink-0 flex flex-col gap-3 p-6 rounded-lg border border-gray-200 shadow-sm bg-white;
     width: clamp(260px, 80vw, 340px);
-    transform: rotate(var(--tilt, 0deg));
-    transition: transform 0.18s ease, box-shadow 0.14s ease, background-color 0.18s ease;
+    transition: box-shadow 0.18s ease, transform 0.18s ease;
     user-select: none;
   }
   .kp-review-card:hover,
   .kp-review-card:focus-within {
-    transform: rotate(0deg) translate(2px, 2px);
     @apply shadow-md;
+    transform: translateY(-2px);
   }
-  .kp-review-card--tone-0 {
-    @apply bg-white;
-  }
-  .kp-review-card--tone-1 {
-    @apply bg-brand-cream;
-  }
-  .kp-review-card--tone-2 {
-    @apply bg-brand-gold-light;
-  }
-  .kp-review-card--tone-3 {
-    @apply bg-white;
-  }
-
-  .kp-review-emoji {
-    position: absolute;
-    top: -14px;
-    right: -10px;
-    font-size: 26px;
-    line-height: 1;
-    transform: rotate(8deg);
-    filter: drop-shadow(1px 2px 0 rgba(0, 0, 0, 0.12));
-    transition: transform 0.18s ease;
-  }
-  .kp-review-card:hover .kp-review-emoji,
-  .kp-review-card:focus-within .kp-review-emoji {
-    transform: rotate(-8deg) scale(1.15);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .kp-review-card {
-      transform: none;
-    }
+  .kp-review-card--beige {
+    @apply bg-brand-cream/40;
   }
 }

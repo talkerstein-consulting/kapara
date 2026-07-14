@@ -121,10 +121,10 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                             <div className="font-serif font-bold text-sm text-brand-espresso">
                               {item.name}
                             </div>
-                            <span className="text-xs text-brand-espresso/60 font-sans block mt-0.5 leading-snug">
+                            <span className="text-sm text-brand-espresso/60 font-sans block mt-0.5 leading-snug">
                               {item.desc}
                             </span>
-                            <span className="text-xs font-semibold text-brand-gold font-mono mt-1 block">
+                            <span className="text-sm font-semibold text-brand-gold font-mono mt-1 block">
                               ${item.price.toFixed(2)} each
                             </span>
                           </div>
@@ -145,7 +145,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                                 <button
                                   type="button"
                                   onClick={() => updateQty(item.id, 1)}
-                                  className="w-8 h-8 rounded-full bg-brand-forest text-white flex items-center justify-center hover:bg-brand-gold hover:text-brand-espresso transition-colors"
+                                  className="w-8 h-8 rounded-full bg-brand-forest text-white flex items-center justify-center hover:bg-white hover:text-brand-forest transition-colors"
                                 >
                                   <Plus className="w-3.5 h-3.5" />
                                 </button>
@@ -154,7 +154,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                               <button
                                 type="button"
                                 onClick={() => updateQty(item.id, 1)}
-                                className="px-3.5 py-1.5 rounded-full border border-brand-espresso text-xs font-semibold text-brand-espresso hover:bg-brand-forest hover:text-white transition-all cursor-pointer"
+                                className="px-3.5 py-1.5 rounded-full border border-brand-espresso text-sm font-semibold text-brand-espresso hover:bg-brand-forest hover:text-white transition-all cursor-pointer"
                               >
                                 Add
                               </button>
@@ -209,13 +209,13 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                         </div>
 
                         <div className="mt-2 pt-3 border-t border-gray-100 flex justify-between items-center">
-                          <span className="text-xs font-semibold text-brand-espresso/60 uppercase">Estimated Total</span>
+                          <span className="text-sm font-semibold text-brand-espresso/60 uppercase">Estimated Total</span>
                           <span className="text-xl font-mono font-bold text-brand-espresso">${cartTotal.toFixed(2)}</span>
                         </div>
 
                         <button
                           type="submit"
-                          className="w-full mt-3 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                          className="w-full mt-3 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-white hover:text-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                         >
                           Confirm & Book Pickup
                           <ArrowRight className="w-4 h-4" />
@@ -233,7 +233,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
 
                   <div className="mt-4 p-4 bg-white rounded-2xl flex items-start gap-3 border border-gray-200 shadow-xs">
                     <ShieldCheck className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
-                    <p className="text-xs text-brand-espresso/70 leading-relaxed font-sans">
+                    <p className="text-base text-brand-espresso/70 leading-relaxed font-sans">
                       All orders are hand-prepared at our Thornhill location under strict COR Kosher supervision. Pick up and pay at 8000 Bathurst St.
                     </p>
                   </div>
@@ -262,10 +262,10 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                     </div>
 
                     <div className="flex justify-between items-start mb-2">
-                      <span className="text-brand-gold text-xs font-semibold tracking-wider uppercase font-sans">
+                      <span className="text-brand-gold text-sm font-semibold tracking-wider uppercase font-sans">
                         Kapara Ticket Code
                       </span>
-                      <span className="bg-brand-gold text-brand-espresso text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide uppercase font-sans">
+                      <span className="bg-brand-gold text-brand-espresso text-sm font-bold px-2 py-0.5 rounded-full tracking-wide uppercase font-sans">
                         COR Certified
                       </span>
                     </div>
@@ -274,7 +274,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                       #KPR-{(Math.floor(Math.random() * 8000) + 1200)}
                     </div>
 
-                    <div className="text-xs text-brand-cream/80 flex items-center gap-1.5 font-sans">
+                    <div className="text-sm text-brand-cream/80 flex items-center gap-1.5 font-sans">
                       <RefreshCw className="w-3 h-3 animate-spin text-brand-gold" /> Ready for pickup: {pickupDate}
                     </div>
                   </div>
@@ -288,7 +288,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                         const item = BAKERY_ITEMS.find(i => i.id === id);
                         if (!item) return null;
                         return (
-                          <div key={id} className="flex justify-between text-xs text-brand-espresso/80 font-sans">
+                          <div key={id} className="flex justify-between text-sm text-brand-espresso/80 font-sans">
                             <span>{qty}x {item.name}</span>
                             <span className="font-mono font-semibold">${(item.price * qty).toFixed(2)}</span>
                           </div>
@@ -296,7 +296,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                       })}
                     </div>
                     <div className="border-t border-gray-100 pt-3 flex justify-between items-center">
-                      <span className="text-xs font-bold text-brand-espresso">Total Due In-Store</span>
+                      <span className="text-sm font-bold text-brand-espresso">Total Due In-Store</span>
                       <span className="text-base font-mono font-bold text-brand-espresso">${cartTotal.toFixed(2)}</span>
                     </div>
                   </div>
@@ -307,7 +307,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
                     <h4 className="text-base font-serif font-bold text-brand-espresso mb-1">Your Reservation is Secured</h4>
-                    <p className="text-xs text-brand-espresso/70 max-w-xs mx-auto leading-relaxed font-sans">
+                    <p className="text-base text-brand-espresso/70 max-w-xs mx-auto leading-relaxed font-sans">
                       Just state your name or ticket code to our cashier. Payment is processed on pickup via Credit/Debit or Cash. Thanks for supporting local!
                     </p>
                   </div>
@@ -315,13 +315,13 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                   <div className="flex gap-2">
                     <button
                       onClick={handleReset}
-                      className="flex-1 bg-white border border-gray-200 text-brand-espresso text-xs font-semibold py-3 rounded-full hover:bg-gray-50 transition-colors cursor-pointer text-center"
+                      className="flex-1 bg-white border border-gray-200 text-brand-espresso text-sm font-semibold py-3 rounded-full hover:bg-gray-50 transition-colors cursor-pointer text-center"
                     >
                       Bake Another Order
                     </button>
                     <button
                       onClick={onClose}
-                      className="flex-1 bg-brand-forest text-brand-cream text-xs font-semibold py-3 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors cursor-pointer text-center"
+                      className="flex-1 bg-brand-forest text-brand-cream text-sm font-semibold py-3 rounded-full hover:bg-white hover:text-brand-forest transition-colors cursor-pointer text-center"
                     >
                       Close Window
                     </button>
@@ -331,7 +331,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
             </div>
 
             {/* Footer details */}
-            <div className="p-4 bg-white border-t border-gray-100 flex items-center justify-between text-[11px] text-brand-espresso/60 font-sans">
+            <div className="p-4 bg-white border-t border-gray-100 flex items-center justify-between text-sm text-brand-espresso/60 font-sans">
               <span>Kitchen Status: Stone Oven Active</span>
               <span className="font-semibold text-brand-gold">Proudly Shabbat Observant</span>
             </div>
@@ -396,7 +396,7 @@ export function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                   <Award className="w-6 h-6 text-brand-gold" />
                 </div>
                 <h4 className="text-2xl font-serif font-bold text-brand-espresso mb-2 tracking-tight">Friday Challah Club</h4>
-                <p className="text-brand-espresso/80 text-sm mb-6 leading-relaxed font-sans">
+                <p className="text-brand-espresso/80 text-base mb-6 leading-relaxed font-sans">
                   Our hand-braided Friday Shabbat challahs sell out by 10 AM! Join our free Challah Club to auto-secure your fresh loaves weekly. We save it, you pick it up.
                 </p>
 
@@ -419,7 +419,7 @@ export function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                   />
                   
                   <div className="flex flex-col gap-1.5 mt-1">
-                    <label className="text-xs font-bold text-brand-espresso/60 uppercase px-3">Loaf Preference</label>
+                    <label className="text-sm font-bold text-brand-espresso/60 uppercase px-3">Loaf Preference</label>
                     <select
                       value={loafSelection}
                       onChange={(e) => setLoafSelection(e.target.value)}
@@ -434,14 +434,14 @@ export function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
 
                   <button
                     type="submit"
-                    className="w-full mt-2 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                    className="w-full mt-2 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-white hover:text-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                   >
                     Lock Weekly Loaf
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>
 
-                <p className="text-[11px] text-brand-espresso/50 mt-4 text-center font-sans">
+                <p className="text-sm text-brand-espresso/50 mt-4 text-center font-sans">
                   No commitment required. You will receive an SMS/Email reminder on Thursdays to confirm or skip pickup.
                 </p>
               </div>
@@ -451,18 +451,18 @@ export function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h4 className="text-2xl font-serif font-bold text-brand-espresso mb-2 tracking-tight">You are in the club!</h4>
-                <p className="text-brand-espresso/70 text-sm max-w-xs mx-auto mb-6 leading-relaxed font-sans">
+                <p className="text-brand-espresso/70 text-base max-w-xs mx-auto mb-6 leading-relaxed font-sans">
                   Welcome to the Friday Challah Club, <span className="font-semibold text-brand-espresso">{name}</span>! We’ve registered your preference.
                 </p>
 
                 <div className="bg-white p-4 rounded-2xl border border-gray-200 max-w-xs mx-auto mb-6 shadow-xs">
-                  <span className="text-xs text-brand-gold block font-semibold uppercase tracking-wider mb-0.5 font-sans">Club Member ID</span>
+                  <span className="text-sm text-brand-gold block font-semibold uppercase tracking-wider mb-0.5 font-sans">Club Member ID</span>
                   <span className="text-3xl font-mono font-bold text-brand-espresso">#CHL-{queueNumber}</span>
                 </div>
 
                 <button
                   onClick={onClose}
-                  className="bg-brand-forest text-brand-cream text-sm font-semibold px-8 py-3 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors cursor-pointer"
+                  className="bg-brand-forest text-brand-cream text-sm font-semibold px-8 py-3 rounded-full hover:bg-white hover:text-brand-forest transition-colors cursor-pointer"
                 >
                   Return to Site
                 </button>
@@ -551,7 +551,7 @@ export function RewardCalculatorModal({ isOpen, onClose }: RewardCalculatorModal
             </div>
 
             <h4 className="text-2xl font-serif font-bold text-brand-espresso mb-1 tracking-tight">Catering Event Planner</h4>
-            <p className="text-brand-espresso/70 text-sm mb-6 leading-relaxed font-sans">
+            <p className="text-brand-espresso/70 text-base mb-6 leading-relaxed font-sans">
               Enter your guest count and select a meal style to estimate required baked goods and budget projections instantly.
             </p>
 
@@ -573,7 +573,7 @@ export function RewardCalculatorModal({ isOpen, onClose }: RewardCalculatorModal
                   onChange={(e) => setGuests(parseInt(e.target.value))}
                   className="w-full accent-brand-espresso cursor-pointer h-1.5 bg-gray-200 rounded-lg appearance-none"
                 />
-                <div className="flex justify-between text-[11px] text-brand-espresso/50 font-sans mt-1">
+                <div className="flex justify-between text-sm text-brand-espresso/50 font-sans mt-1">
                   <span>5 guests</span>
                   <span>75 guests</span>
                   <span>150 guests</span>
@@ -588,7 +588,7 @@ export function RewardCalculatorModal({ isOpen, onClose }: RewardCalculatorModal
                       key={type}
                       type="button"
                       onClick={() => setMealType(type)}
-                      className={`py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                      className={`py-2 rounded-xl text-sm font-semibold border transition-all cursor-pointer ${
                         mealType === type
                           ? 'bg-brand-forest text-brand-cream border-brand-espresso shadow-xs'
                           : 'bg-white text-brand-espresso/70 border-gray-200 hover:bg-gray-50'
@@ -604,8 +604,8 @@ export function RewardCalculatorModal({ isOpen, onClose }: RewardCalculatorModal
             {/* Catering projections */}
             <div className="p-6 bg-white rounded-3xl border border-gray-200 flex flex-col gap-4 shadow-2xs mb-6">
               <div className="flex justify-between items-center pb-3 border-b border-gray-100">
-                <span className="text-xs text-brand-espresso/60 font-semibold uppercase font-sans">Estimated Spread Breakdown</span>
-                <span className="text-xs font-bold text-brand-gold bg-amber-50 px-2 py-0.5 rounded-full">COR Kosher</span>
+                <span className="text-sm text-brand-espresso/60 font-semibold uppercase font-sans">Estimated Spread Breakdown</span>
+                <span className="text-sm font-bold text-brand-gold bg-amber-50 px-2 py-0.5 rounded-full">COR Kosher</span>
               </div>
 
               <div className="grid grid-cols-2 gap-y-3 gap-x-4 text-sm text-brand-espresso/90">
@@ -629,12 +629,12 @@ export function RewardCalculatorModal({ isOpen, onClose }: RewardCalculatorModal
 
               <div className="border-t border-gray-100 pt-4 flex justify-between items-end">
                 <div>
-                  <span className="text-xs text-brand-espresso/60 block font-semibold uppercase font-sans mb-1">Catering Budget Estimate</span>
+                  <span className="text-sm text-brand-espresso/60 block font-semibold uppercase font-sans mb-1">Catering Budget Estimate</span>
                   <span className="text-2xl font-mono font-bold text-brand-espresso">
                     ${totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 </div>
-                <span className="text-[11px] text-brand-espresso/50 font-sans">~${activeConfig.rate.toFixed(2)} / guest</span>
+                <span className="text-sm text-brand-espresso/50 font-sans">~${activeConfig.rate.toFixed(2)} / guest</span>
               </div>
             </div>
 
@@ -644,7 +644,7 @@ export function RewardCalculatorModal({ isOpen, onClose }: RewardCalculatorModal
                   onClose();
                   alert(`Thank you! Catering inquiry generated for ${guests} guests of meal style '${activeConfig.label}'. Our Thornhill supervisor will contact you shortly to finalize flavors.`);
                 }}
-                className="w-full bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-brand-gold hover:text-brand-espresso transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                className="w-full bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-white hover:text-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
               >
                 Submit Catering Request
                 <ArrowRight className="w-4 h-4" />

@@ -62,8 +62,8 @@ export function Menu() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8 items-start">
 
-          {/* Sidebar: Category Tabs (sticky) */}
-          <div className="lg:sticky lg:top-28 bg-white p-4 rounded-lg border border-gray-100 shadow-sm flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible">
+          {/* Sidebar: Category Tabs (sticky on every breakpoint) */}
+          <div className="sticky top-20 z-30 lg:top-28 bg-white p-4 rounded-lg border border-gray-100 shadow-sm flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible">
             {categories.map((cat) => (
               <button
                 key={cat.id}
@@ -114,7 +114,7 @@ export function Menu() {
                 {filteredItems.map((item) => (
                   <div
                     key={item.id}
-                    className="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-xs hover:shadow-md transition-all flex flex-col group relative"
+                    className="kp-reveal kp-hover-lift bg-white rounded-lg overflow-hidden border border-gray-100 shadow-xs hover:shadow-md transition-all flex flex-col group relative"
                   >
                     {/* Item Image */}
                     <div className="h-48 w-full overflow-hidden relative bg-brand-cream/20">
@@ -128,13 +128,13 @@ export function Menu() {
                         {item.dietary.filter((tag) => tag !== 'COR Kosher').slice(0, 3).map((tag, i) => (
                           <span
                             key={i}
-                            className="text-[9px] font-bold px-2 py-0.5 rounded-lg bg-brand-cream/90 text-brand-espresso uppercase tracking-wider backdrop-blur-xs font-sans shadow-2xs"
+                            className="text-sm font-bold px-2 py-0.5 rounded-lg bg-brand-cream/90 text-brand-espresso uppercase tracking-wider backdrop-blur-xs font-sans shadow-2xs"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
-                      <span className="absolute bottom-4 right-4 bg-brand-forest/90 text-brand-cream text-xs font-bold font-mono px-3 py-1 rounded-lg backdrop-blur-xs">
+                      <span className="absolute bottom-4 right-4 bg-brand-forest/90 text-brand-cream text-sm font-bold font-mono px-3 py-1 rounded-lg backdrop-blur-xs">
                         ${item.price.toFixed(2)}
                       </span>
                     </div>
@@ -147,7 +147,7 @@ export function Menu() {
                             {item.name}
                           </h3>
                         </div>
-                        <p className="text-xs text-brand-espresso/70 leading-relaxed font-sans mb-6">
+                        <p className="text-base text-brand-espresso/70 leading-relaxed font-sans mb-6">
                           {item.desc}
                         </p>
                       </div>
@@ -158,7 +158,7 @@ export function Menu() {
                           href={ORDER_ONLINE_URL}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-brand-gold text-white hover:bg-brand-forest rounded-lg text-xs font-bold tracking-wide uppercase transition-all duration-200 cursor-pointer shadow-3xs"
+                          className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-brand-gold text-white hover:bg-brand-forest rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-200 cursor-pointer shadow-3xs"
                         >
                           Order Online
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -200,7 +200,7 @@ export function Menu() {
                   <Sparkles className="w-6 h-6" />
                 </span>
                 <div>
-                  <span className="block text-[11px] font-bold uppercase tracking-widest text-brand-gold mb-0.5 font-sans">
+                  <span className="block text-sm font-bold uppercase tracking-widest text-brand-gold mb-0.5 font-sans">
                     Included with every order
                   </span>
                   <h3 className="font-serif font-bold text-xl md:text-2xl text-brand-espresso leading-tight">
@@ -210,13 +210,13 @@ export function Menu() {
               </div>
               <button
                 onClick={() => setShowCustomizerInfo(false)}
-                className="shrink-0 text-brand-espresso/60 hover:text-brand-espresso hover:bg-brand-cream/60 text-xs font-bold transition-colors border border-gray-200 px-3 py-1.5 rounded-lg cursor-pointer"
+                className="shrink-0 text-brand-espresso/60 hover:text-brand-espresso hover:bg-brand-cream/60 text-sm font-bold transition-colors border border-gray-200 px-3 py-1.5 rounded-lg cursor-pointer"
               >
                 Dismiss
               </button>
             </div>
 
-            <p className="text-sm md:text-base text-brand-espresso/80 max-w-3xl mb-6 leading-relaxed font-sans">
+            <p className="text-base md:text-base text-brand-espresso/80 max-w-3xl mb-6 leading-relaxed font-sans">
               All of our legendary sandwiches (served in fresh <strong className="text-brand-gold">challah</strong>, hot crusty <strong className="text-brand-gold">baguette</strong>, or a soft <strong className="text-brand-gold">wrap</strong>) and generous meat platters come with your unlimited choice of complimentary fresh toppings and chef-made sauces. State your preferences during pickup!
             </p>
 
