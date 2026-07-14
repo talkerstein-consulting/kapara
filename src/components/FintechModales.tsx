@@ -145,7 +145,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                                 <button
                                   type="button"
                                   onClick={() => updateQty(item.id, 1)}
-                                  className="w-8 h-8 rounded-full bg-brand-forest text-white flex items-center justify-center hover:bg-white hover:text-brand-forest transition-colors"
+                                  className="w-8 h-8 rounded-full bg-brand-forest text-white flex items-center justify-center border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors"
                                 >
                                   <Plus className="w-3.5 h-3.5" />
                                 </button>
@@ -215,7 +215,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
 
                         <button
                           type="submit"
-                          className="w-full mt-3 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-white hover:text-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                          className="w-full mt-3 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                         >
                           Confirm & Book Pickup
                           <ArrowRight className="w-4 h-4" />
@@ -321,7 +321,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                     </button>
                     <button
                       onClick={onClose}
-                      className="flex-1 bg-brand-forest text-brand-cream text-sm font-semibold py-3 rounded-full hover:bg-white hover:text-brand-forest transition-colors cursor-pointer text-center"
+                      className="flex-1 bg-brand-forest text-brand-cream text-sm font-semibold py-3 rounded-full border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors cursor-pointer text-center"
                     >
                       Close Window
                     </button>
@@ -434,7 +434,7 @@ export function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
 
                   <button
                     type="submit"
-                    className="w-full mt-2 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-white hover:text-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                    className="w-full mt-2 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                   >
                     Lock Weekly Loaf
                     <ArrowRight className="w-4 h-4" />
@@ -462,7 +462,7 @@ export function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
 
                 <button
                   onClick={onClose}
-                  className="bg-brand-forest text-brand-cream text-sm font-semibold px-8 py-3 rounded-full hover:bg-white hover:text-brand-forest transition-colors cursor-pointer"
+                  className="bg-brand-forest text-brand-cream text-sm font-semibold px-8 py-3 rounded-full border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors cursor-pointer"
                 >
                   Return to Site
                 </button>
@@ -644,7 +644,7 @@ export function RewardCalculatorModal({ isOpen, onClose }: RewardCalculatorModal
                   onClose();
                   alert(`Thank you! Catering inquiry generated for ${guests} guests of meal style '${activeConfig.label}'. Our Thornhill supervisor will contact you shortly to finalize flavors.`);
                 }}
-                className="w-full bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full hover:bg-white hover:text-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                className="w-full bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
               >
                 Submit Catering Request
                 <ArrowRight className="w-4 h-4" />

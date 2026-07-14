@@ -87,7 +87,7 @@ export function InstagramGallery() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-brand-gold text-white font-sans font-bold text-sm uppercase tracking-widest px-5 py-3 rounded-lg hover:bg-white hover:text-brand-espresso transition-colors shadow-sm shrink-0"
+            className="inline-flex items-center gap-2 bg-brand-gold text-white border-2 border-transparent font-sans font-bold text-sm uppercase tracking-widest px-5 py-3 rounded-lg hover:bg-white hover:text-brand-espresso hover:border-brand-gold transition-colors shadow-sm shrink-0"
           >
             Follow on Instagram
             <ArrowRight className="w-3.5 h-3.5" />

@@ -159,7 +159,7 @@ export function Footer() {
               Supervision: Kapara Bistro & Grill is operated under strict Kashruth Council of Canada (COR) Kosher meat supervision. All meats are premium Glatt Kosher. For detailed inquiries regarding our kashruth procedures, ingredients, or private event catering, please feel free to speak with our supervisor on-site or contact us directly.
             </p>
           </div>
-          <div className="flex flex-col md:items-end justify-between shrink-0 font-sans gap-3">
+          <div className="flex flex-col md:items-end shrink-0 font-sans gap-3">
             <a
               href="https://talkerstein.com/"
               target="_blank"
@@ -169,7 +169,7 @@ export function Footer() {
               <img
                 src="/brand/talkerstein-consulting-kapara.svg"
                 alt="Talkerstein Consulting Group"
-                className="h-6 w-auto max-w-[300px] opacity-90 group-hover:opacity-100 transition-opacity brightness-0 invert"
+                className="h-9 w-auto max-w-[360px] opacity-90 group-hover:opacity-100 transition-opacity brightness-0 invert"
               />
             </a>
             <div className="flex flex-wrap items-center gap-4">

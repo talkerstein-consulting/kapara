@@ -238,7 +238,7 @@ export function Reservations() {
 
                 <button
                   type="submit"
-                  className="w-full bg-brand-forest text-brand-cream hover:bg-white hover:text-brand-forest font-sans font-semibold py-4 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
+                  className="w-full bg-brand-forest text-brand-cream border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest font-sans font-semibold py-4 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
                 >
                   Reserve a Spot
                   <ArrowRight className="w-4 h-4" />
@@ -296,7 +296,7 @@ export function Reservations() {
                   </button>
                   <button
                     onClick={() => { window.location.href = '/menu'; }}
-                    className="bg-brand-forest text-brand-cream hover:bg-white hover:text-brand-forest font-sans font-bold text-sm px-6 py-3 rounded-lg transition-all cursor-pointer"
+                    className="bg-brand-forest text-brand-cream border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest font-sans font-bold text-sm px-6 py-3 rounded-lg transition-all cursor-pointer"
                   >
                     Browse the Menu
                   </button>
@@ -338,7 +338,7 @@ export function Reservations() {
             <div className="bg-brand-forest text-brand-cream rounded-2xl p-5 flex gap-3.5 items-start">
               <Utensils className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider mb-1 font-sans text-brand-gold">
+                <h4 className="text-sm font-bold uppercase tracking-wider mb-1 font-sans text-brand-gold-light">
                   Planning a bigger event?
                 </h4>
                 <p className="text-base text-brand-cream/85 leading-relaxed font-sans mb-3">
@@ -346,7 +346,7 @@ export function Reservations() {
                 </p>
                 <button
                   onClick={() => { window.location.href = '/catering'; }}
-                  className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-gold hover:text-brand-cream transition-colors cursor-pointer font-sans"
+                  className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-gold-light hover:text-white transition-colors cursor-pointer font-sans"
                 >
                   Explore Catering & Events <ArrowRight className="w-3.5 h-3.5" />
                 </button>

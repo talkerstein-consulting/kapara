@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Instagram, Compass, ExternalLink, CalendarDays, Send, CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { StoreHours } from '../components/StoreHours';
 import { StoreMap } from '../components/StoreMap';
 import { TikTokIcon } from '../components/icons/TikTokIcon';
 import { INSTAGRAM_URL, TIKTOK_URL, GOOGLE_MAPS_DIRECTIONS_URL } from '../data/business';
@@ -18,25 +19,28 @@ export function Location() {
   return (
     <div id="location-page-root" className="kp-page bg-brand-cream/30">
       <div className="max-w-6xl mx-auto">
-        
+
         {/* Header */}
         <div className="kp-section-header">
           <span className="kp-eyebrow">
             Thornhill Neighborhood Hub
           </span>
           <h2 className="kp-heading">
-            Contact Us
+            Hours & Location
           </h2>
           <p className="kp-subtext">
-            Questions, custom orders, or catering inquiries? Reach out any way that's easiest for you — our live hours and map are just below.
+            Come visit our warm brick-and-mortar storefront or order online for fast in-store pickup. We look forward to welcoming you!
           </p>
         </div>
 
         {/* Content Split: Details vs Map */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
 
-          {/* Left Block: Contact Details (7 Columns) */}
+          {/* Left Block: Hours & Contact Details (7 Columns) */}
           <div className="lg:col-span-7 flex flex-col gap-8">
+
+            {/* Store Hours card */}
+            <StoreHours />
 
             {/* Address & Quick Contacts Card */}
             <div className="bg-white p-6 md:p-8 rounded-lg border border-gray-100 shadow-sm">
@@ -230,7 +234,7 @@ export function Location() {
                 <div className="flex justify-center pt-1">
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 bg-brand-forest text-white font-bold text-sm uppercase tracking-wider px-10 py-3.5 rounded-lg hover:bg-white hover:text-brand-forest transition-colors duration-200 cursor-pointer shadow-sm active:scale-98"
+                    className="inline-flex items-center gap-2 bg-brand-forest text-white font-bold text-sm uppercase tracking-wider px-10 py-3.5 rounded-lg border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors duration-200 cursor-pointer shadow-sm active:scale-98"
                   >
                     Send Message
                     <Send className="w-4 h-4" />

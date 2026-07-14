@@ -8,11 +8,15 @@ import { InstagramGallery } from '../components/InstagramGallery';
 interface Props {
   title?: string;
   active?: string;
+  /** Set true on pages that already place the Hours & Map section
+   *  themselves (e.g. the Contact page), to avoid showing it twice. */
+  hideGlobalHours?: boolean;
 }
 
 const {
   title = "Kapara — Toronto's Best Casual Kosher Spot",
   active = 'home',
+  hideGlobalHours = false,
 } = Astro.props;
 ---
 
@@ -30,8 +34,9 @@ const {
       <main id="main-content-canvas" class="flex-1">
         <slot />
         {/* Global on every page — single source of truth in data/business.ts,
-            so hours/social updates there propagate everywhere automatically. */}
-        <HoursAndMapSection client:visible />
+            so hours/social updates there propagate everywhere automatically.
+            Skipped on pages (like Contact) that place it themselves. */}
+        {!hideGlobalHours && <HoursAndMapSection client:visible />}
         <InstagramGallery client:visible />
       </main>
       <Footer />

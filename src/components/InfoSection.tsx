@@ -26,7 +26,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
             <button
               id="btn-discover"
               onClick={onDiscover}
-              className="inline-flex items-center gap-3 bg-brand-forest text-brand-cream text-base font-semibold pl-6 pr-2 py-2 rounded-lg hover:bg-white hover:text-brand-forest transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg group"
+              className="inline-flex items-center gap-3 bg-brand-forest text-brand-cream text-base font-semibold pl-6 pr-2 py-2 rounded-lg border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg group"
             >
               Estimate Event Catering
               <span className="bg-brand-cream rounded-full p-1.5 transition-all duration-300 group-hover:translate-x-1 group-hover:bg-brand-forest">

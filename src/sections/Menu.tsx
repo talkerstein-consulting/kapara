@@ -128,7 +128,7 @@ export function Menu() {
                         {item.dietary.filter((tag) => tag !== 'COR Kosher').slice(0, 3).map((tag, i) => (
                           <span
                             key={i}
-                            className="text-sm font-bold px-2 py-0.5 rounded-lg bg-brand-cream/90 text-brand-espresso uppercase tracking-wider backdrop-blur-xs font-sans shadow-2xs"
+                            className="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-brand-cream/90 text-brand-espresso uppercase tracking-wider backdrop-blur-xs font-sans shadow-2xs"
                           >
                             {tag}
                           </span>
@@ -158,7 +158,7 @@ export function Menu() {
                           href={ORDER_ONLINE_URL}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-brand-gold text-white hover:bg-brand-forest rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-200 cursor-pointer shadow-3xs"
+                          className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-brand-forest text-white border-2 border-brand-forest hover:bg-white hover:text-brand-espresso rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-200 cursor-pointer shadow-3xs"
                         >
                           Order Online
                           <ArrowRight className="w-3.5 h-3.5" />

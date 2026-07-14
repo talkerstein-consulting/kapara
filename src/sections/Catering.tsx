@@ -378,7 +378,7 @@ export function Catering() {
 
                 <button
                   type="submit"
-                  className="w-full bg-brand-forest text-brand-cream hover:bg-white hover:text-brand-forest font-sans font-semibold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
+                  className="w-full bg-brand-forest text-brand-cream border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest font-sans font-semibold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
                 >
                   Request Catering Quote
                   <ArrowRight className="w-4 h-4" />
@@ -441,7 +441,7 @@ export function Catering() {
                 setEventDate('');
                 setNotes('');
               }}
-              className="bg-brand-forest text-brand-cream hover:bg-white hover:text-brand-forest font-sans font-bold text-sm px-8 py-3.5 rounded-lg transition-all cursor-pointer"
+              className="bg-brand-forest text-brand-cream border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest font-sans font-bold text-sm px-8 py-3.5 rounded-lg transition-all cursor-pointer"
             >
               Plan Another Event
             </button>

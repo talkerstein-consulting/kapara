@@ -123,7 +123,7 @@ export function Navbar({ activePage = 'home' }: NavbarProps) {
               target="_blank"
               rel="noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center bg-brand-forest text-white text-base font-bold py-3 rounded-lg hover:bg-white hover:text-brand-forest transition-colors cursor-pointer"
+              className="block w-full text-center bg-brand-forest text-white text-base font-bold py-3 rounded-lg border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors cursor-pointer"
             >
               Order Online
             </a>

@@ -71,7 +71,7 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
                   
                   {/* Floating Badge */}
                   <span className="absolute top-4 left-4 inline-flex items-center gap-1 bg-brand-forest text-brand-cream text-sm font-bold font-sans uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-10">
-                    <Sparkles className="w-2.5 h-2.5 text-brand-gold" /> {item.badge}
+                    <Sparkles className="w-2.5 h-2.5 text-brand-gold-light shrink-0" /> {item.badge}
                   </span>
                 </div>
 
@@ -98,10 +98,10 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
 
                   <button
                     onClick={onOrder}
-                    className="inline-flex items-center gap-2 text-brand-espresso hover:text-brand-gold font-bold text-sm tracking-wide uppercase transition-colors duration-200 cursor-pointer group/btn"
+                    className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-brand-forest text-white border-2 border-brand-forest hover:bg-white hover:text-brand-espresso rounded-lg font-bold text-sm tracking-wide uppercase transition-all duration-200 cursor-pointer shadow-3xs group/btn"
                   >
                     <span>Order Now</span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </button>
                 </div>
               </motion.div>
