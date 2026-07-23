@@ -1,6 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { REVIEWS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_URL, type Review } from '../data/reviews';
+import { motion } from 'motion/react';
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_URL } from '../data/reviews';
 import { CtaButton } from './ui/CtaButton';
+
+interface Review {
+  name: string;
+  stars: number;
+  emoji: string;
+  quote: string;
+}
 
 function GoogleG({ className }: { className?: string }) {
   return (
@@ -138,6 +146,7 @@ export function ReviewsMarquee() {
   const [twoRows, setTwoRows] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches
   );
+  const [reviews, setReviews] = useState<Review[]>([]);
 
   useEffect(() => {
     const mq = window.matchMedia('(min-width: 768px)');
@@ -147,14 +156,29 @@ export function ReviewsMarquee() {
     return () => mq.removeEventListener('change', onChange);
   }, []);
 
-  const mid = Math.ceil(REVIEWS.length / 2);
-  const rowA = REVIEWS.slice(0, mid);
-  const rowB = REVIEWS.slice(mid);
+  useEffect(() => {
+    fetch('/api/reviews')
+      .then((res) => res.json())
+      .then((data: Review[]) => setReviews(data))
+      .catch(() => {});
+  }, []);
+
+  if (reviews.length === 0) return null;
+
+  const mid = Math.ceil(reviews.length / 2);
+  const rowA = reviews.slice(0, mid);
+  const rowB = reviews.slice(mid);
 
   return (
     <section id="reviews-band" className="bg-white px-6 py-16 md:py-24" aria-label="Google reviews">
       <div className="max-w-[88rem] mx-auto">
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap items-end justify-between gap-6 mb-10"
+        >
           <div>
             <span className="kp-eyebrow">Straight From Our Customers</span>
             <h2 className="kp-heading mb-0">
@@ -172,7 +196,7 @@ export function ReviewsMarquee() {
           >
             Read all on Google
           </CtaButton>
-        </div>
+        </motion.div>
 
         <div className="rounded-lg overflow-hidden flex flex-col gap-4">
           {twoRows ? (
@@ -181,7 +205,7 @@ export function ReviewsMarquee() {
               <MarqueeRow reviews={rowB} direction={-1} />
             </>
           ) : (
-            <MarqueeRow reviews={REVIEWS} direction={1} />
+            <MarqueeRow reviews={reviews} direction={1} />
           )}
         </div>
       </div>

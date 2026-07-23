@@ -35,7 +35,13 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
     <section id="bistro-specialties-spotlight" className="bg-[#F6F3EC] px-6 py-24 border-t border-b border-gray-200/40">
       <div className="max-w-[88rem] mx-auto">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-3 font-sans uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5" /> Signature Classics
           </div>
@@ -45,7 +51,7 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
           <p className="text-brand-espresso/80 text-sm md:text-base font-sans max-w-2xl mx-auto">
             Experience the legendary crown jewels of Kapara Bistro & Grill. Cooked fresh to order under meticulous COR Kosher Meat standards using premium local ingredients.
           </p>
-        </div>
+        </motion.div>
 
         {/* Two Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">

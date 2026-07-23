@@ -23,7 +23,7 @@ export function Navbar({ activePage = 'home' }: NavbarProps) {
   return (
     <nav id="navbar-main" className="fixed top-4 inset-x-0 z-50 px-4">
       {/* Floating pill */}
-      <div className="max-w-4xl mx-auto bg-[#60745B]/95 backdrop-blur-md rounded-lg shadow-lg border border-white/10 pl-6 pr-3 py-2 flex items-center justify-between">
+      <div className="max-w-4xl mx-auto bg-[#60745B]/95 backdrop-blur-md rounded-lg shadow-lg border border-white/10 pl-6 pr-3 py-2 flex items-center justify-between lg:grid lg:grid-cols-[auto_1fr_auto] lg:gap-4">
         {/* Left: Logo */}
         <a
           id="nav-brand"
@@ -37,35 +37,35 @@ export function Navbar({ activePage = 'home' }: NavbarProps) {
           />
         </a>
 
-        {/* Right cluster: desktop links + CTA + mobile toggle */}
-        <div className="flex items-center gap-4">
-          {/* Text nav links (hidden below lg) */}
-          <div id="nav-links-center" className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => {
-              const isActive = activePage === link.id;
-              return (
-                <a
-                  key={link.id}
-                  href={link.href}
-                  className={`text-sm font-semibold font-sans transition-colors duration-200 relative py-1 cursor-pointer ${
-                    isActive
-                      ? 'text-white'
-                      : 'text-white/70 hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavLine"
-                      className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-white rounded-full"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </a>
-              );
-            })}
-          </div>
+        {/* Center: text nav links (hidden below lg) */}
+        <div id="nav-links-center" className="hidden lg:flex items-center justify-center gap-7">
+          {navLinks.map((link) => {
+            const isActive = activePage === link.id;
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                className={`text-sm font-semibold font-sans transition-colors duration-200 relative py-1 cursor-pointer ${
+                  isActive
+                    ? 'text-white'
+                    : 'text-white/70 hover:text-white'
+                }`}
+              >
+                {link.label}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNavLine"
+                    className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-white rounded-full"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </a>
+            );
+          })}
+        </div>
 
+        {/* Right cluster: CTA + mobile toggle */}
+        <div className="flex items-center gap-4">
           {/* Dark CTA pill: Order Online */}
           <a
             id="btn-order-online-nav"

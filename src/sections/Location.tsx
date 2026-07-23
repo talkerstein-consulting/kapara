@@ -14,6 +14,12 @@ export function Location() {
     e.preventDefault();
     if (!form.name || !form.email) return;
     setSent(true);
+
+    fetch('/api/submissions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ formType: 'contact', payload: form }),
+    }).catch(() => {});
   };
 
   return (
@@ -21,7 +27,13 @@ export function Location() {
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-        <div className="kp-section-header">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="kp-section-header"
+        >
           <span className="kp-eyebrow">
             Thornhill Neighborhood Hub
           </span>
@@ -31,7 +43,7 @@ export function Location() {
           <p className="kp-subtext">
             Come visit our warm brick-and-mortar storefront or order online for fast in-store pickup. We look forward to welcoming you!
           </p>
-        </div>
+        </motion.div>
 
         {/* Content Split: Details vs Map */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
@@ -43,7 +55,7 @@ export function Location() {
             <StoreHours />
 
             {/* Address & Quick Contacts Card */}
-            <div className="bg-white p-6 md:p-8 rounded-lg border border-gray-100 shadow-sm">
+            <div className="bg-white p-6 md:p-8 rounded-lg border border-gray-100 shadow-sm kp-hover-lift">
               <h3 className="font-serif font-bold text-lg md:text-xl text-brand-espresso mb-6 flex items-center gap-2">
                 <Compass className="w-5 h-5 text-brand-gold" /> Address & Contact
               </h3>
@@ -125,7 +137,7 @@ export function Location() {
           <div className="lg:col-span-5 flex flex-col gap-6">
             
             {/* Google Map Card */}
-            <div className="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm relative">
+            <div className="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm relative kp-hover-lift">
               <div className="p-4 bg-brand-cream/10 border-b border-gray-100 flex justify-between items-center">
                 <span className="text-sm font-bold text-brand-espresso uppercase tracking-wider font-sans">
                   Interactive Store Finder
@@ -143,7 +155,7 @@ export function Location() {
             </div>
 
             {/* Special notices (Holiday early closures) */}
-            <div className="bg-brand-gold/10 p-5 rounded-3xl border border-brand-gold/25 flex gap-3.5">
+            <div className="bg-brand-gold/10 p-5 rounded-3xl border border-brand-gold/25 flex gap-3.5 kp-hover-lift">
               <CalendarDays className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
               <div>
                 <h4 className="text-sm font-bold text-brand-espresso uppercase tracking-wider mb-1 font-sans">

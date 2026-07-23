@@ -164,12 +164,13 @@ export function Footer() {
               href="https://talkerstein.com/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center group"
+              className="inline-flex items-center group opacity-90 hover:opacity-100 transition-opacity"
             >
               <img
                 src="/brand/talkerstein-consulting-kapara.svg"
                 alt="Talkerstein Consulting Group"
-                className="h-9 w-auto max-w-[360px] opacity-90 group-hover:opacity-100 transition-opacity brightness-0 invert"
+                className="h-5 sm:h-6 md:h-7 w-auto"
+                style={{ aspectRatio: '3022 / 148' }}
               />
             </a>
             <div className="flex flex-wrap items-center gap-4">

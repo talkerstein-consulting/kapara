@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Sparkles, Check, Flame } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BAKERY_ITEMS } from '../data/menu';
-import { ORDER_ONLINE_URL } from '../types';
+import { ORDER_ONLINE_URL, type BakeryItem } from '../types';
 import { CtaButton } from '../components/ui/CtaButton';
 
 export function Menu() {
@@ -12,9 +11,17 @@ export function Menu() {
   });
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [showCustomizerInfo, setShowCustomizerInfo] = useState<boolean>(true);
+  const [items, setItems] = useState<BakeryItem[]>([]);
+
+  useEffect(() => {
+    fetch('/api/menu')
+      .then((res) => res.json())
+      .then((data: BakeryItem[]) => setItems(data))
+      .catch(() => {});
+  }, []);
 
   // Filter items
-  const filteredItems = BAKERY_ITEMS.filter((item) => {
+  const filteredItems = items.filter((item) => {
     const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
     const matchesSearch =
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -49,7 +56,13 @@ export function Menu() {
       <div className="max-w-7xl mx-auto">
         
         {/* Page Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
           <span className="kp-eyebrow">
             Flame Grill & Golden Crispy Schnitzels
           </span>
@@ -59,7 +72,7 @@ export function Menu() {
           <p className="kp-subtext">
             All grilled meats and golden crispy schnitzels are cooked fresh to order under rigorous COR Kosher Supervision. Order online for fast in-store pickup.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8 items-start">
 

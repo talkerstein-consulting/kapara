@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Users, Phone, Mail, User, Clock, CheckCircle2, ArrowRight, HelpCircle, ChevronDown, PartyPopper, MessageSquare, Utensils } from 'lucide-react';
+import { Calendar, Users, Phone, Mail, User, Clock, CheckCircle2, ArrowRight, HelpCircle, ChevronDown, PartyPopper, Utensils } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CtaButton } from '../components/ui/CtaButton';
 
@@ -32,6 +32,15 @@ export function Reservations() {
     if (!name || !email || !phone || !date) return;
     setConfirmId(Math.floor(Math.random() * 800) + 215);
     setSubmitted(true);
+
+    fetch('/api/submissions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        formType: 'reservation',
+        payload: { name, phone, email, date, guests, eventType, comments },
+      }),
+    }).catch(() => {});
   };
 
   const highlights = [
@@ -82,7 +91,13 @@ export function Reservations() {
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-        <div className="kp-section-header">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="kp-section-header"
+        >
           <span className="kp-eyebrow">
             Dine With Us in Thornhill
           </span>
@@ -92,7 +107,7 @@ export function Reservations() {
           <p className="kp-subtext">
             A taste of Israel, right here in Toronto. Reserve your table and come hungry — casual vibes, serious eats, and a room made for gathering.
           </p>
-        </div>
+        </motion.div>
 
         {/* Form and Highlights Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
@@ -315,7 +330,7 @@ export function Reservations() {
               {highlights.map((item, idx) => {
                 const IconComponent = item.icon;
                 return (
-                  <div key={idx} className="flex gap-4 items-start p-5 bg-white rounded-lg border border-gray-50 shadow-3xs">
+                  <div key={idx} className="flex gap-4 items-start p-5 bg-white rounded-lg border border-gray-50 shadow-3xs kp-hover-lift">
                     <div className="bg-brand-gold/15 text-brand-gold p-3 rounded-xl shrink-0">
                       <IconComponent className="w-5 h-5" />
                     </div>
@@ -372,7 +387,7 @@ export function Reservations() {
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-brand-cream/10 transition-colors cursor-pointer"
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-black/[0.02] transition-colors cursor-pointer"
                   >
                     <span className="font-serif font-bold text-sm md:text-base text-brand-espresso">
                       {faq.q}

@@ -24,11 +24,11 @@ export function Home() {
       {/* Info/Intro Section */}
       <InfoSection onDiscover={() => go('/catering')} />
 
-      {/* Backed By Partners / Certification Badges */}
-      <BackedBySection />
-
       {/* Interactive Highlights section */}
       <UseCasesSection onLearnMore={() => go('/catering')} />
+
+      {/* Backed By Partners / Certification Badges */}
+      <BackedBySection />
 
       {/* Google Reviews */}
       <ReviewsMarquee />

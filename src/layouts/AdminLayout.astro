@@ -1,0 +1,59 @@
+---
+import '../index.css';
+
+interface Props {
+  title?: string;
+  active?: 'dashboard' | 'menu' | 'reviews';
+}
+
+const { title = 'Admin — Kapara', active } = Astro.props;
+
+const navLinks = [
+  { id: 'dashboard', label: 'Submissions', href: '/admin' },
+  { id: 'menu', label: 'Menu', href: '/admin/menu' },
+  { id: 'reviews', label: 'Reviews', href: '/admin/reviews' },
+] as const;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-brand-cream/20 min-h-screen font-sans text-brand-espresso">
+    <div id="admin-root" class="flex flex-col min-h-screen">
+      <header class="bg-brand-forest text-brand-cream sticky top-0 z-40 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+          <a href="/admin" class="font-serif font-bold text-lg leading-none">Kapara Admin</a>
+          <a
+            href="/api/auth/signout"
+            class="text-sm text-brand-cream/70 hover:text-brand-cream transition-colors"
+          >
+            Sign out
+          </a>
+        </div>
+        <nav class="max-w-5xl mx-auto px-4 sm:px-6 flex gap-1 overflow-x-auto pb-2">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class:list={[
+                'px-3 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-colors',
+                active === link.id
+                  ? 'bg-white text-brand-forest'
+                  : 'text-brand-cream/80 hover:bg-white/10',
+              ]}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </header>
+      <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-6">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

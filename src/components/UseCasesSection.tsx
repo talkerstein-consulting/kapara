@@ -52,18 +52,25 @@ export function UseCasesSection({ onLearnMore }: UseCasesSectionProps) {
         
         {/* Left Column */}
         <div id="use-cases-left" className="md:pr-12 md:pt-2">
-          <span className="kp-eyebrow">
-            Kapara Bistro Classics
-          </span>
-          <h2
-            className="text-brand-espresso text-5xl md:text-6xl font-serif font-bold leading-none mb-6"
-            style={{ letterSpacing: '-0.02em' }}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
           >
-            Menu Highlights
-          </h2>
-          <p className="text-brand-espresso/80 text-base leading-relaxed max-w-sm mb-10 font-sans">
-            Explore our premium categories, prepared with open flame precision, fresh ingredients, and time-tested Mediterranean family recipes.
-          </p>
+            <span className="kp-eyebrow">
+              Kapara Bistro Classics
+            </span>
+            <h2
+              className="text-brand-espresso text-5xl md:text-6xl font-serif font-bold leading-none mb-6"
+              style={{ letterSpacing: '-0.02em' }}
+            >
+              Menu Highlights
+            </h2>
+            <p className="text-brand-espresso/80 text-base leading-relaxed max-w-sm mb-10 font-sans">
+              Explore our premium categories, prepared with open flame precision, fresh ingredients, and time-tested Mediterranean family recipes.
+            </p>
+          </motion.div>
 
           {/* Interactive Mode List Selector */}
           <div className="flex flex-col gap-3">
@@ -71,9 +78,11 @@ export function UseCasesSection({ onLearnMore }: UseCasesSectionProps) {
               const IconComp = mode.icon;
               const isActive = mode.id === activeModeId;
               return (
-                <button
+                <motion.button
                   key={mode.id}
                   onClick={() => setActiveModeId(mode.id)}
+                  whileHover={{ x: isActive ? 0 : 4 }}
+                  transition={{ duration: 0.2 }}
                   className={`flex items-center gap-4 p-4 rounded-lg text-left transition-all duration-200 cursor-pointer w-full max-w-md ${
                     isActive
                       ? 'bg-brand-forest text-brand-cream shadow-md translate-x-2'
@@ -95,7 +104,7 @@ export function UseCasesSection({ onLearnMore }: UseCasesSectionProps) {
                       isActive ? 'translate-x-0 opacity-100 text-white' : 'translate-x-[-4px] opacity-0 text-gray-400'
                     }`}
                   />
-                </button>
+                </motion.button>
               );
             })}
           </div>

@@ -100,9 +100,9 @@ export function StoreHours() {
         href={GOOGLE_MAPS_DIRECTIONS_URL}
         target="_blank"
         rel="noreferrer"
-        className="inline-flex items-center gap-2 text-sm text-brand-cream/70 hover:text-brand-cream transition-colors font-sans mb-6"
+        className="relative inline-block text-sm text-brand-cream/70 hover:text-brand-cream transition-colors font-sans mb-6"
       >
-        <MapPin className="w-4 h-4 text-brand-gold shrink-0" />
+        <MapPin className="w-4 h-4 text-brand-gold shrink-0 absolute -left-6 top-1/2 -translate-y-1/2" />
         {ADDRESS_LINE}
       </a>
 
@@ -122,15 +122,6 @@ export function StoreHours() {
             >
               <span className="flex items-center gap-2 font-semibold">
                 {name}
-                {isToday && (
-                  <span className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wider px-2 py-0.5 rounded-lg bg-white text-brand-espresso">
-                    <span className="relative inline-flex w-1.5 h-1.5">
-                      <span className={`absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping ${isOpenNow ? 'bg-green-500' : 'bg-red-500'}`} />
-                      <span className={`relative inline-flex w-1.5 h-1.5 rounded-full ${isOpenNow ? 'bg-green-500' : 'bg-red-500'}`} />
-                    </span>
-                    {isOpenNow ? 'Open now' : 'Closed'}
-                  </span>
-                )}
               </span>
               <span className="text-brand-cream/70">{hoursLabel}</span>
             </li>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Users, Flame, PartyPopper } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ORDER_ONLINE_URL } from '../types';
-import { CtaButton } from '../components/ui/CtaButton';
+import Cta4 from '../components/blocks/cta-4';
 
 export function About() {
   const values = [
@@ -28,7 +28,13 @@ export function About() {
       <div className="max-w-5xl mx-auto">
 
         {/* Header */}
-        <div className="kp-section-header">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="kp-section-header"
+        >
           <span className="kp-eyebrow">
             Welcome to Kapara
           </span>
@@ -38,7 +44,7 @@ export function About() {
           <p className="kp-subtext">
             Toronto's best casual kosher spot — a taste of Israel, right here in Thornhill. Come for the food, stay for the vibe.
           </p>
-        </div>
+        </motion.div>
 
         {/* Feature image + Story (two columns) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-14">
@@ -80,7 +86,7 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white rounded-lg p-7 border border-gray-100 shadow-3xs flex flex-col items-start"
+                className="bg-white rounded-lg p-7 border border-gray-100 shadow-3xs flex flex-col items-start kp-hover-lift"
               >
                 <div className="w-12 h-12 rounded-2xl bg-brand-gold/15 text-brand-gold flex items-center justify-center mb-5">
                   <Icon className="w-6 h-6" />
@@ -97,25 +103,16 @@ export function About() {
         </div>
 
         {/* CTA */}
-        <div className="bg-brand-forest text-brand-cream rounded-lg p-8 md:p-12 text-center relative overflow-hidden">
-          <div className="absolute right-6 bottom-2 text-white/5 pointer-events-none font-serif text-9xl select-none font-bold">
-            Kapara
-          </div>
-          <h3 className="font-serif font-bold text-2xl md:text-3xl mb-3 relative z-10">
-            Eat Like an Israeli
-          </h3>
-          <p className="text-brand-cream/85 text-sm md:text-base max-w-xl mx-auto mb-8 font-sans relative z-10">
-            Whether it's a quick pita, a family feast, or a table for the whole crew — we can't wait to feed you.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center relative z-10">
-            <CtaButton href={ORDER_ONLINE_URL} target="_blank" rel="noreferrer" variant="inverse" className="px-7 py-3.5">
-              Order Online
-            </CtaButton>
-            <CtaButton onClick={() => { window.location.href = '/reservations'; }} variant="inverse" className="px-7 py-3.5">
-              Book a Table
-            </CtaButton>
-          </div>
-        </div>
+        <Cta4
+          heading={<>Eat Like <span className="italic font-normal">an Israeli</span></>}
+          description="Whether it's a quick pita, a family feast, or a table for the whole crew — we can't wait to feed you."
+          primaryHref={ORDER_ONLINE_URL}
+          primaryTarget="_blank"
+          primaryRel="noreferrer"
+          primaryLabel="Order Online"
+          onSecondaryClick={() => { window.location.href = '/reservations'; }}
+          secondaryLabel="Book a Table"
+        />
 
       </div>
     </div>

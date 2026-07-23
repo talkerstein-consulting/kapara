@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'motion/react';
 import { Instagram, ChevronLeft, ChevronRight, X, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { INSTAGRAM_URL } from '../data/business';
 import { CtaButton } from './ui/CtaButton';
@@ -75,7 +76,13 @@ export function InstagramGallery() {
   return (
     <section id="instagram-gallery" className="bg-white px-6 py-16 md:py-24" aria-label="Kapara on Instagram">
       <div className="max-w-[88rem] mx-auto">
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap items-end justify-between gap-6 mb-10"
+        >
           <div>
             <span className="kp-eyebrow flex items-center gap-2">
               <Instagram className="w-4 h-4" /> @kaparatoronto
@@ -95,15 +102,17 @@ export function InstagramGallery() {
           >
             Follow on Instagram
           </CtaButton>
-        </div>
+        </motion.div>
 
         <div className="relative">
           <div className="relative flex items-stretch justify-center gap-2.5 h-[55vh] max-h-[560px] overflow-hidden rounded-lg">
             {/* Peek: previous-previous reel (desktop only) */}
-            <button
+            <motion.button
               type="button"
               onClick={() => goTo(prevIndex2)}
               aria-label="Show reel"
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.25 }}
               className="hidden lg:block shrink-0 h-full aspect-9/16 bg-black cursor-pointer rounded-lg overflow-hidden"
             >
               <img
@@ -111,13 +120,15 @@ export function InstagramGallery() {
                 alt=""
                 className="w-full h-full object-cover"
               />
-            </button>
+            </motion.button>
 
             {/* Peek: previous reel */}
-            <button
+            <motion.button
               type="button"
               onClick={() => goTo(prevIndex)}
               aria-label="Show previous reel"
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.25 }}
               className="hidden sm:block shrink-0 h-full aspect-9/16 bg-black cursor-pointer rounded-lg overflow-hidden"
             >
               <img
@@ -125,7 +136,7 @@ export function InstagramGallery() {
                 alt=""
                 className="w-full h-full object-cover"
               />
-            </button>
+            </motion.button>
 
             {/* Center: active reel, only one that plays */}
             <div className="relative shrink-0 h-full aspect-9/16 bg-black shadow-xl z-10 rounded-lg overflow-hidden">
@@ -169,10 +180,12 @@ export function InstagramGallery() {
             </div>
 
             {/* Peek: next reel */}
-            <button
+            <motion.button
               type="button"
               onClick={() => goTo(nextIndex)}
               aria-label="Show next reel"
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.25 }}
               className="hidden sm:block shrink-0 h-full aspect-9/16 bg-black cursor-pointer rounded-lg overflow-hidden"
             >
               <img
@@ -180,13 +193,15 @@ export function InstagramGallery() {
                 alt=""
                 className="w-full h-full object-cover"
               />
-            </button>
+            </motion.button>
 
             {/* Peek: next-next reel (desktop only) */}
-            <button
+            <motion.button
               type="button"
               onClick={() => goTo(nextIndex2)}
               aria-label="Show reel"
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.25 }}
               className="hidden lg:block shrink-0 h-full aspect-9/16 bg-black cursor-pointer rounded-lg overflow-hidden"
             >
               <img
@@ -194,7 +209,7 @@ export function InstagramGallery() {
                 alt=""
                 className="w-full h-full object-cover"
               />
-            </button>
+            </motion.button>
           </div>
 
           <button

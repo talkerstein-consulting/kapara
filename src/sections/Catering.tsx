@@ -59,6 +59,15 @@ export function Catering() {
     e.preventDefault();
     if (!name || !phone || !email) return;
     setSubmitted(true);
+
+    fetch('/api/submissions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        formType: 'catering',
+        payload: { name, phone, email, eventDate, guests, mealType, notes },
+      }),
+    }).catch(() => {});
   };
 
   const servicePillars = [
@@ -84,7 +93,13 @@ export function Catering() {
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
           <span className="kp-eyebrow">
             Thornhill Catering & Private Events
           </span>
@@ -94,7 +109,7 @@ export function Catering() {
           <p className="kp-subtext">
             Bring the flavors of Kapara to your celebration. From casual pita bars to full private-event spreads, we cater birthdays, Bar/Bat Mitzvahs, corporate dinners, and Shabbat gatherings — all kosher.
           </p>
-        </div>
+        </motion.div>
 
         {/* Service Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
@@ -126,9 +141,10 @@ export function Catering() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
                   {(['quickserve', 'grill', 'spread'] as const).map((type) => (
-                    <button
+                    <motion.button
                       key={type}
                       type="button"
+                      whileHover={{ y: -3 }}
                       onClick={() => setMealType(type)}
                       className={`p-4 rounded-lg text-left border transition-all cursor-pointer flex flex-col justify-between ${
                         mealType === type
@@ -147,7 +163,7 @@ export function Catering() {
                       <span className={`text-sm font-mono font-semibold mt-4 block ${mealType === type ? 'text-white' : ''}`}>
                         ${configs[type].rate.toFixed(2)}/guest
                       </span>
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
 
@@ -160,7 +176,7 @@ export function Catering() {
               </div>
 
               {/* Guests Count Slider */}
-              <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+              <div className="kp-hover-lift bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
                   <div>
                     <span className="text-sm font-bold text-brand-gold uppercase tracking-widest block font-sans">
@@ -193,7 +209,7 @@ export function Catering() {
               </div>
 
               {/* Real-time Food Volume Recommendations */}
-              <div className="bg-brand-forest text-brand-cream rounded-lg p-6 relative overflow-hidden shadow-md">
+              <div className="kp-hover-lift bg-brand-forest text-brand-cream rounded-lg p-6 relative overflow-hidden shadow-md">
                 <div className="absolute right-0 bottom-0 translate-x-12 translate-y-12 opacity-5 pointer-events-none">
                   <ChefHat className="w-56 h-56" />
                 </div>
@@ -275,7 +291,7 @@ export function Catering() {
             </div>
 
             {/* Right Column: Booking Form (5 Cols) */}
-            <div className="lg:col-span-5 bg-white p-8 rounded-lg border border-gray-100 shadow-md">
+            <div className="kp-hover-lift lg:col-span-5 bg-white p-8 rounded-lg border border-gray-100 shadow-md">
               <div className="flex gap-3 items-center pb-4 border-b border-gray-100 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center text-brand-gold">
                   <Calendar className="w-5 h-5" />
@@ -385,7 +401,7 @@ export function Catering() {
 
           </div>
         ) : (
-          <div className="max-w-2xl mx-auto bg-white p-12 rounded-lg border border-gray-100 text-center shadow-lg">
+          <div className="kp-hover-lift max-w-2xl mx-auto bg-white p-12 rounded-lg border border-gray-100 text-center shadow-lg">
             <div className="kp-success-icon">
               <CheckCircle2 className="w-8 h-8" />
             </div>

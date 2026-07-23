@@ -13,7 +13,13 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
       <div className="max-w-[88rem] mx-auto">
         {/* Row 1: Dual column introduction */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-start">
-          <div className="flex flex-col items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-start"
+          >
             <span className="text-brand-gold text-sm font-bold tracking-widest uppercase mb-3 block font-sans">
               Our Values
             </span>
@@ -27,16 +33,21 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
             <CtaButton id="btn-discover" onClick={onDiscover} variant="solid">
               Estimate Event Catering
             </CtaButton>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
             <p
               id="info-description-text"
               className="text-brand-espresso/85 text-2xl md:text-3xl leading-relaxed font-serif"
             >
               Our menu is a love letter to Israel's street food scene, with everything made fresh and packed with flavor.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Row 2: bento grid — one tall feature card, two stacked cards beside it */}
@@ -47,7 +58,7 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
           {/* Card 1: tall feature card */}
           <div
             id="info-card-bloom"
-            className="kp-reveal rounded-lg lg:row-span-2 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col group"
+            className="kp-reveal rounded-lg lg:row-span-2 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] flex flex-col group"
           >
             <div
               className="w-full flex-1 min-h-0 aspect-4/3 lg:aspect-auto bg-gray-100 bg-cover bg-center"

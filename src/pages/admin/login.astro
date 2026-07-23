@@ -1,0 +1,46 @@
+---
+export const prerender = false;
+import '../../index.css';
+import { getSession } from 'auth-astro/server';
+
+const session = await getSession(Astro.request);
+if (session?.user) {
+  return Astro.redirect('/admin');
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Sign in — Kapara Admin</title>
+  </head>
+  <body class="min-h-screen flex items-center justify-center px-4 font-sans" style="background-color: #5F7058;">
+    <div class="bg-white rounded-lg shadow-lg p-8 sm:p-10 w-full max-w-sm text-center">
+      <h1 class="font-serif font-bold text-2xl text-brand-espresso mb-2">Kapara Admin</h1>
+      <p class="text-brand-espresso/70 text-sm mb-8">Sign in with an authorized Google account to continue.</p>
+      <button
+        id="google-signin"
+        class="w-full inline-flex items-center justify-center gap-2 bg-brand-forest text-brand-cream font-semibold text-sm py-3 rounded-lg hover:bg-brand-espresso transition-colors cursor-pointer"
+      >
+        Sign in with Google
+      </button>
+      <p id="signin-error" class="text-red-600 text-sm mt-4 hidden">
+        That Google account isn't authorized for admin access.
+      </p>
+    </div>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('error')) {
+        document.getElementById('signin-error')?.classList.remove('hidden');
+      }
+
+      document.getElementById('google-signin')?.addEventListener('click', async () => {
+        const { signIn } = await import('auth-astro/client');
+        signIn('google', { callbackUrl: '/admin' });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+---
+export const prerender = false;
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { AdminReviews } from '../../sections/admin/AdminReviews';
+---
+
+<AdminLayout title="Reviews — Kapara Admin" active="reviews">
+  <AdminReviews client:load />
+</AdminLayout>
