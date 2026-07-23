@@ -1,7 +1,8 @@
 import React from 'react';
-import { Users, Flame, PartyPopper, ArrowRight } from 'lucide-react';
+import { Users, Flame, PartyPopper } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ORDER_ONLINE_URL } from '../types';
+import { CtaButton } from '../components/ui/CtaButton';
 
 export function About() {
   const values = [
@@ -107,21 +108,12 @@ export function About() {
             Whether it's a quick pita, a family feast, or a table for the whole crew — we can't wait to feed you.
           </p>
           <div className="flex flex-wrap gap-3 justify-center relative z-10">
-            <a
-              href={ORDER_ONLINE_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-brand-espresso border border-white hover:bg-brand-forest hover:text-white hover:border-white font-sans font-bold text-sm px-7 py-3.5 rounded-lg transition-all cursor-pointer"
-            >
+            <CtaButton href={ORDER_ONLINE_URL} target="_blank" rel="noreferrer" variant="inverse" className="px-7 py-3.5">
               Order Online
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <button
-              onClick={() => { window.location.href = '/reservations'; }}
-              className="inline-flex items-center gap-2 bg-white text-brand-espresso border border-white hover:bg-brand-forest hover:text-white hover:border-white font-sans font-bold text-sm px-7 py-3.5 rounded-lg transition-all cursor-pointer"
-            >
+            </CtaButton>
+            <CtaButton onClick={() => { window.location.href = '/reservations'; }} variant="inverse" className="px-7 py-3.5">
               Book a Table
-            </button>
+            </CtaButton>
           </div>
         </div>
 

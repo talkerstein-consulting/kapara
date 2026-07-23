@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { REVIEWS, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_URL, type Review } from '../data/reviews';
-import { ArrowRight } from 'lucide-react';
+import { CtaButton } from './ui/CtaButton';
 
 function GoogleG({ className }: { className?: string }) {
   return (
@@ -161,15 +161,17 @@ export function ReviewsMarquee() {
               {GOOGLE_RATING} Stars From {GOOGLE_REVIEW_COUNT} Reviews.
             </h2>
           </div>
-          <a
+          <CtaButton
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-white border border-gray-200 text-brand-espresso font-sans font-bold text-sm uppercase tracking-widest px-5 py-3 rounded-lg hover:bg-brand-forest hover:text-white hover:border-brand-forest transition-colors shadow-sm shrink-0"
+            variant="inverse"
+            size="sm"
+            fullWidthMobile={false}
+            className="uppercase tracking-widest border-gray-200 shrink-0"
           >
             Read all on Google
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
+          </CtaButton>
         </div>
 
         <div className="rounded-lg overflow-hidden flex flex-col gap-4">

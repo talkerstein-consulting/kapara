@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Calendar, Users, Phone, Mail, User, Info, ArrowRight, CheckCircle2, Flame, Sparkles, ChefHat, Utensils } from 'lucide-react';
+import { Calendar, Users, Phone, Mail, User, Info, CheckCircle2, Flame, Sparkles, ChefHat, Utensils } from 'lucide-react';
 import { motion } from 'motion/react';
+import { CtaButton } from '../components/ui/CtaButton';
 
 export function Catering() {
   const [guests, setGuests] = useState(30);
@@ -376,13 +377,9 @@ export function Catering() {
                   </span>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-brand-forest text-brand-cream border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest font-sans font-semibold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
-                >
+                <CtaButton type="submit" variant="solid" className="mt-2" fullWidth>
                   Request Catering Quote
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                </CtaButton>
               </form>
             </div>
 

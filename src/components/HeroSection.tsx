@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
+import { CtaButton } from './ui/CtaButton';
 
 interface HeroSectionProps {
   onJoinUs: () => void;
@@ -166,17 +167,16 @@ export function HeroSection({ onJoinUs }: HeroSectionProps) {
               A Taste of Israel, Right Here in Toronto. Come for the food, stay for the vibe.
             </motion.p>
 
-            <motion.button
-              id="btn-join-us"
-              onClick={onJoinUs}
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="inline-flex items-center gap-2 border-2 border-white text-white text-sm md:text-base font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg hover:bg-white hover:text-brand-espresso transition-all duration-200 cursor-pointer active:scale-98 group"
+              className="inline-block w-full sm:w-auto"
             >
-              View Full Menu
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </motion.button>
+              <CtaButton id="btn-join-us" onClick={onJoinUs} variant="outline" className="uppercase tracking-wider px-8 py-3.5">
+                View Full Menu
+              </CtaButton>
+            </motion.div>
           </div>
         </div>
       </div>

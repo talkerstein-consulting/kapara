@@ -5,8 +5,7 @@
       "name": "kapara-dev",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 3000,
-      "cwd": "C:\\Users\\Jade\\Downloads\\kapara"
+      "port": 3000
     }
   ]
 }

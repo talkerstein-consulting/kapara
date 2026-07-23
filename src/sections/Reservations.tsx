@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, Users, Phone, Mail, User, Clock, CheckCircle2, ArrowRight, HelpCircle, ChevronDown, PartyPopper, MessageSquare, Utensils } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { CtaButton } from '../components/ui/CtaButton';
 
 export function Reservations() {
   const [name, setName] = useState('');
@@ -236,13 +237,9 @@ export function Reservations() {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-brand-forest text-brand-cream border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest font-sans font-semibold py-4 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm mt-2"
-                >
+                <CtaButton type="submit" variant="solid" className="py-4 mt-2" fullWidth>
                   Reserve a Spot
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                </CtaButton>
               </form>
             ) : (
               <div className="text-center py-10">

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Flame, Utensils, ArrowRight, Sparkles } from 'lucide-react';
+import { Flame, Utensils, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
+import { CtaButton } from './ui/CtaButton';
 
 interface SpecialtiesSectionProps {
   onOrder: () => void;
@@ -96,13 +97,9 @@ export function SpecialtiesSection({ onOrder }: SpecialtiesSectionProps) {
                     </p>
                   </div>
 
-                  <button
-                    onClick={onOrder}
-                    className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-brand-forest text-white border-2 border-brand-forest hover:bg-white hover:text-brand-espresso rounded-lg font-bold text-sm tracking-wide uppercase transition-all duration-200 cursor-pointer shadow-3xs group/btn"
-                  >
-                    <span>Order Now</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                  </button>
+                  <CtaButton onClick={onOrder} variant="solid" size="sm" fullWidthMobile={false} className="uppercase">
+                    Order Now
+                  </CtaButton>
                 </div>
               </motion.div>
             );

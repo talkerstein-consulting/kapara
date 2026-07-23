@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowRight, Sparkles, Flame, PartyPopper } from 'lucide-react';
+import { Flame, PartyPopper } from 'lucide-react';
 import { motion } from 'motion/react';
+import { CtaButton } from './ui/CtaButton';
 
 interface InfoSectionProps {
   onDiscover: () => void;
@@ -23,16 +24,9 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
             >
               More Than a Restaurant.
             </h2>
-            <button
-              id="btn-discover"
-              onClick={onDiscover}
-              className="inline-flex items-center gap-3 bg-brand-forest text-brand-cream text-base font-semibold pl-6 pr-2 py-2 rounded-lg border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg group"
-            >
+            <CtaButton id="btn-discover" onClick={onDiscover} variant="solid">
               Estimate Event Catering
-              <span className="bg-brand-cream rounded-full p-1.5 transition-all duration-300 group-hover:translate-x-1 group-hover:bg-brand-forest">
-                <ArrowRight className="w-4 h-4 text-brand-espresso transition-colors duration-300 group-hover:text-white" />
-              </span>
-            </button>
+            </CtaButton>
           </div>
 
           <div>
@@ -45,90 +39,74 @@ export function InfoSection({ onDiscover }: InfoSectionProps) {
           </div>
         </div>
 
-        {/* Row 2: 3-column card grid */}
-        <div id="cards-grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Card 1 (spans 2 cols on lg) */}
+        {/* Row 2: bento grid — one tall feature card, two stacked cards beside it */}
+        <div
+          id="cards-grid"
+          className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-4 lg:h-[42rem]"
+        >
+          {/* Card 1: tall feature card */}
           <div
             id="info-card-bloom"
-            className="kp-reveal rounded-lg lg:col-span-2 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between p-7 min-h-80 relative group"
-            style={{
-              backgroundImage: 'url("/home/kapara-food-celebration.webp")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
+            className="kp-reveal rounded-lg lg:row-span-2 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col group"
           >
-            {/* Ambient overlay to protect text contrast */}
-            <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/20 to-black/95 pointer-events-none" />
+            <div
+              className="w-full flex-1 min-h-0 aspect-4/3 lg:aspect-auto bg-gray-100 bg-cover bg-center"
+              style={{ backgroundImage: 'url("/home/kapara-food-celebration.webp")' }}
+            />
 
-            <div className="relative z-10">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-brand-cream/90 backdrop-blur-md text-brand-espresso shadow-xs mb-4">
-                <Sparkles className="w-3.5 h-3.5 text-brand-gold" /> Community
-              </span>
+            <div className="bg-brand-forest px-6 py-5 flex flex-col gap-2 shrink-0">
               <h3
-                className="kp-card-title text-2xl"
+                className="font-serif font-bold text-brand-cream text-2xl leading-tight"
                 style={{ letterSpacing: '-0.01em' }}
               >
                 A Gathering Place
               </h3>
-            </div>
-
-            <div className="relative z-10">
               <p className="text-brand-cream/90 text-base max-w-sm leading-relaxed font-sans">
                 More than a restaurant, Kapara is a gathering place — a warm room built for family, friends, and neighbours to come together over great food.
               </p>
             </div>
           </div>
 
-          {/* Card 2 */}
+          {/* Card 2: shorter, wide */}
           <div
             id="info-card-fluid"
-            className="kp-reveal rounded-lg p-7 min-h-80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden"
-            style={{
-              backgroundImage: 'url("/menu/kebab.webp")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
+            className="kp-reveal rounded-lg flex flex-col shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group overflow-hidden"
           >
-            {/* Dark overlay for text legibility */}
-            <div className="absolute inset-0 bg-linear-to-b from-black/45 via-black/20 to-black/92 pointer-events-none transition-colors duration-300" />
+            <div
+              className="w-full flex-1 min-h-0 aspect-4/3 lg:aspect-auto bg-gray-100 bg-cover bg-center"
+              style={{ backgroundImage: 'url("/menu/kebab.webp")' }}
+            />
 
-            <div className="relative z-10">
-              <div className="kp-icon-badge mb-4 transition-transform duration-500 group-hover:rotate-12">
-                <Flame className="w-8 h-8" />
+            <div className="bg-brand-forest px-6 py-5 flex flex-col gap-2 shrink-0">
+              <div className="kp-icon-badge transition-transform duration-500 group-hover:rotate-12">
+                <Flame className="w-6 h-6" />
               </div>
-              <h3 className="kp-card-title text-2xl">
+              <h3 className="font-serif font-bold text-brand-cream text-2xl leading-tight">
                 Flavor
               </h3>
-            </div>
-            <div className="relative z-10">
               <p className="text-brand-cream/90 text-base leading-relaxed font-sans">
                 Big, bold, and unforgettable. Flame-grilled skewers, golden schnitzels, and creamy house-made hummus, inspired by the food markets of Israel.
               </p>
             </div>
           </div>
 
-          {/* Card 3 */}
+          {/* Card 3: shorter, wide */}
           <div
             id="info-card-automated"
-            className="kp-reveal rounded-lg p-7 min-h-80 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden"
-            style={{
-              backgroundImage: 'url("/menu/loaded-fries.webp")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
+            className="kp-reveal rounded-lg flex flex-col shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] group overflow-hidden"
           >
-            {/* Dark overlay for text legibility */}
-            <div className="absolute inset-0 bg-linear-to-b from-black/45 via-black/20 to-black/92 pointer-events-none transition-colors duration-300" />
+            <div
+              className="w-full flex-1 min-h-0 aspect-4/3 lg:aspect-auto bg-gray-100 bg-cover bg-center"
+              style={{ backgroundImage: 'url("/menu/loaded-fries.webp")' }}
+            />
 
-            <div className="relative z-10">
-              <div className="kp-icon-badge mb-4 transition-transform duration-500 group-hover:scale-110">
-                <PartyPopper className="w-8 h-8" />
+            <div className="bg-brand-forest px-6 py-5 flex flex-col gap-2 shrink-0">
+              <div className="kp-icon-badge transition-transform duration-500 group-hover:scale-110">
+                <PartyPopper className="w-6 h-6" />
               </div>
-              <h3 className="kp-card-title text-2xl">
+              <h3 className="font-serif font-bold text-brand-cream text-2xl leading-tight">
                 Fun
               </h3>
-            </div>
-            <div className="relative z-10">
               <p className="text-brand-cream/90 text-base leading-relaxed font-sans">
                 Casual vibes with serious eats. Come for the food, stay for the vibe — a taste of Israel, right here in Toronto.
               </p>

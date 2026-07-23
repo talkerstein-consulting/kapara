@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Search, ArrowRight, Sparkles, Check, Flame } from 'lucide-react';
+import { Search, Sparkles, Check, Flame } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BAKERY_ITEMS } from '../data/menu';
 import { ORDER_ONLINE_URL } from '../types';
+import { CtaButton } from '../components/ui/CtaButton';
 
 export function Menu() {
   const [selectedCategory, setSelectedCategory] = useState<string>(() => {
@@ -154,15 +155,17 @@ export function Menu() {
 
                       <div className="flex items-center justify-end pt-4 border-t border-gray-50 mt-auto">
                         {/* Order Online (Clover) */}
-                        <a
+                        <CtaButton
                           href={ORDER_ONLINE_URL}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-brand-forest text-white border-2 border-brand-forest hover:bg-white hover:text-brand-espresso rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-200 cursor-pointer shadow-3xs"
+                          variant="solid"
+                          size="sm"
+                          fullWidthMobile={false}
+                          className="uppercase"
                         >
                           Order Online
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </a>
+                        </CtaButton>
                       </div>
                     </div>
                   </div>

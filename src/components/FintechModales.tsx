@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { X, ArrowRight, ShoppingBag, ShieldCheck, RefreshCw, Phone, Calendar, User, TrendingUp, CheckCircle2, ChevronRight, Award, Plus, Minus, ChefHat } from 'lucide-react';
+import { X, ShoppingBag, ShieldCheck, RefreshCw, Phone, Calendar, User, TrendingUp, CheckCircle2, ChevronRight, Award, Plus, Minus, ChefHat } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { CtaButton } from './ui/CtaButton';
 
 // --- MENU DATA ---
 const BAKERY_ITEMS = [
@@ -213,13 +214,9 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                           <span className="text-xl font-mono font-bold text-brand-espresso">${cartTotal.toFixed(2)}</span>
                         </div>
 
-                        <button
-                          type="submit"
-                          className="w-full mt-3 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
-                        >
+                        <CtaButton type="submit" variant="solid" rounded="full" className="py-3.5 mt-3" fullWidth>
                           Confirm & Book Pickup
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
+                        </CtaButton>
                       </div>
                     </form>
                   )}
@@ -432,13 +429,9 @@ export function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                     </select>
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full mt-2 bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
-                  >
+                  <CtaButton type="submit" variant="solid" rounded="full" className="py-3.5 mt-2" fullWidth>
                     Lock Weekly Loaf
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </CtaButton>
                 </form>
 
                 <p className="text-sm text-brand-espresso/50 mt-4 text-center font-sans">
@@ -639,16 +632,18 @@ export function RewardCalculatorModal({ isOpen, onClose }: RewardCalculatorModal
             </div>
 
             <div>
-              <button
+              <CtaButton
                 onClick={() => {
                   onClose();
                   alert(`Thank you! Catering inquiry generated for ${guests} guests of meal style '${activeConfig.label}'. Our Thornhill supervisor will contact you shortly to finalize flavors.`);
                 }}
-                className="w-full bg-brand-forest text-brand-cream text-sm font-semibold py-3.5 rounded-full border-2 border-transparent hover:bg-white hover:text-brand-forest hover:border-brand-forest transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                variant="solid"
+                rounded="full"
+                className="py-3.5"
+                fullWidth
               >
                 Submit Catering Request
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              </CtaButton>
             </div>
           </motion.div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Instagram, ArrowRight, ChevronLeft, ChevronRight, X, Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { Instagram, ChevronLeft, ChevronRight, X, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { INSTAGRAM_URL } from '../data/business';
+import { CtaButton } from './ui/CtaButton';
 
 const REEL_COUNT = 14;
 
@@ -83,15 +84,17 @@ export function InstagramGallery() {
               See What's Fresh at Kapara
             </h2>
           </div>
-          <a
+          <CtaButton
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-brand-gold text-white border-2 border-transparent font-sans font-bold text-sm uppercase tracking-widest px-5 py-3 rounded-lg hover:bg-white hover:text-brand-espresso hover:border-brand-gold transition-colors shadow-sm shrink-0"
+            variant="solid"
+            size="sm"
+            fullWidthMobile={false}
+            className="uppercase tracking-widest shrink-0"
           >
             Follow on Instagram
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
+          </CtaButton>
         </div>
 
         <div className="relative">
