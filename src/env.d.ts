@@ -14,6 +14,12 @@ interface ImportMetaEnv {
   readonly ADMIN_EMAILS?: string;
   readonly GOOGLE_PLACES_API_KEY?: string;
   readonly GOOGLE_PLACE_ID?: string;
+  readonly SMTP_HOST?: string;
+  readonly SMTP_PORT?: string;
+  readonly SMTP_USER?: string;
+  readonly SMTP_PASSWORD?: string;
+  readonly MAIL_FROM?: string;
+  readonly MAIL_TO?: string;
 }
 
 interface ImportMeta {
